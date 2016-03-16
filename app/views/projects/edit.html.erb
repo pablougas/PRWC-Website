@@ -1,0 +1,24 @@
+<div class="col-md-10 col-md-offset-1">
+   	<div class="wrapper">
+      	<div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+               <li role="presentation" class="active"><%= link_to "Home", welcome_index_path %></li>
+               <li role="presentation"><%= link_to "Events", events_path %></li>
+               <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
+               <li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
+               <li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            </ul>
+            <hr>
+         </div>
+      	<div class="col-md-9">
+            <div class="panel panel-primary">
+              	<div class="panel-heading">Edit Project</div>
+					<%= render 'form' %>
+					<span class="pull-right">
+						<%= link_to 'Back', welcome_index_path %>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

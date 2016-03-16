@@ -1,0 +1,65 @@
+<div class="col-md-10 col-md-offset-1">
+   <div class="wrapper">
+      <div class="col-md-3">
+            <ul class="nav nav-pills nav-stacked">
+               <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
+               <li role="presentation"><%= link_to "Events", events_path %></li>
+               <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
+               <li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
+               <li role="presentation" class="active"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+            </ul>
+            <hr>
+         </div>
+      <div class="col-md-9">
+            <div class="panel panel-primary">
+              <div class="panel-heading">Edit <%= resource_name.to_s.humanize %></div>
+
+                  <div id="editform">
+                     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                     <%= devise_error_messages! %>
+                     
+                     <div class="field">
+                     <%= f.email_field :email, hide_label: true, placeholder:'Email', autofocus: true %>
+                     </div>
+
+                     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                     <% end %>
+
+                     <div class="field">
+                        <%= f.text_field :first_name, hide_label: true, placeholder:'First Name', autofocus: true %>
+                     </div>
+
+                     <div class="field">
+                        <%= f.text_field :last_name, hide_label: true, placeholder:'Last Name', autofocus: true %>
+                     </div>
+
+                     <div class="field">
+                        <%= f.password_field :password, hide_label: true, placeholder:'Password', autocomplete: "off" %>
+                     </div>
+
+                     <div class="field">
+                        <%= f.password_field :password_confirmation, hide_label: true, placeholder:'Confirm Password', autocomplete: "off" %>
+                     </div>
+
+                     <div class="field">
+                        <%= f.password_field :current_password, hide_label: true, placeholder:'Old Password', autocomplete: "off" %>
+                     </div>
+
+                     <div class="actions">
+                        <%= f.submit "Update", class:"btn btn-primary" %>
+                     </div>
+                     <% end %>
+
+                     <h3>Cancel my account</h3>
+
+                     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+                     <%= link_to "Back", :back %>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

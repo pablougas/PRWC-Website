@@ -1,0 +1,46 @@
+<div id="editform">
+<%= bootstrap_form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :user_id, value:current_user.id %>
+  <div class="col-md-12">
+    <%= f.check_box :complete, label: "Mark project as completed" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.text_field :title, placeholder:'Title' %>
+  </div>
+  <div class="col-md-3">
+    <%= f.date_select :deadline %>
+  </div>
+  <div class="col-md-3">
+    <%= f.select :priority, [[1, "High"], [2, "Mid High"], [3, "Mid"], [4, "Mid Low"], [5, "Low"]], { label: "Priority level (1 Highest - 5 Low)" }, { class: "selectpicker" } %>
+  </div>
+  <div class="field">
+    <%= f.text_area :description, label: "Project Description", placeholder:'Description' %>
+  </div>
+  <div></div>
+  <hr>
+  <fieldset id="tasks">
+      <%= f.fields_for :tasks do |task| %>
+      <%= render 'task_fields', :f => task %>
+      <% end %>
+  </fieldset>
+  <div class="links">
+    <%= link_to_add_association ' Add Task', f, :tasks, class:"btn btn-primary btn-block" %>
+  </div>
+  <hr>
+  <div class="actions">
+    <%= f.submit "Save", class:"btn btn-success" %>
+  </div>
+<% end %>
+</div>

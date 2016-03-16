@@ -1,0 +1,181 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.inline {
+    display:inline;
+}
+.center-icon {
+	width: 75px;
+	margin-top: 6px;
+	margin-bottom: 70px;
+	vertical-align: middle;
+}
+.event {
+	color: #ffffff;
+	background-color: #7aa13f;
+	margin-top: 0 !important;
+	padding-top: 3px;
+	padding-bottom: 10px;
+	margin-bottom: 70px;
+	height: 100%;
+}
+.ebutton {
+	border: 1px solid white;
+	font-size: 75%;
+	background-color: #7aa13f;
+	padding: 7px;
+	margin-top: 0 !important;
+	white-space: nowrap;
+	color: white;
+}
+.ebutton:hover {
+	border: 1px solid white;
+	color: lightgrey;
+	font-size: 75%;
+	background-color: #648c28;
+	padding: 7px;
+	margin: 0 !important;
+	white-space: nowrap;
+	text-decoration: none;
+
+}
+.membership {
+	background: url('bg/membership.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100%;
+    max-height: 750px;
+    min-height: 100%;
+    padding-top: 35px;
+}
+.plans {
+	padding: 10px;
+	margin-top: 25px !important;
+	margin-bottom: 20px !important;
+}
+#plan_link {
+	font-weight: lighter;
+	color: #7aa13f;
+}
+#contact {
+	background-color: #555555;
+	height: 420px;
+	margin-bottom: 32px;
+}
+.contact-form {
+	margin-top: 5%;
+}
+#gmap {
+    iframe{
+    height: 420px;
+    }
+    overflow: hidden !important;
+}
+.embed-responsive-16by9{
+	overflow: hidden !important;
+	height: 420px !important;
+	padding: 0 !important;
+}
+.banner {
+	width: 100%;
+	height: 100%;
+	max-height: 1000px !important;
+	margin-bottom:40px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+.teamBox {
+	height: 400px;
+	width: 100%;
+	margin-top: 30px;
+	background-color: #ebebeb;
+}
+.border {
+	border: 1px solid lightgrey;
+}
+.blog {
+   padding: 0 !important;
+   margin-bottom:20px;
+   border-radius: 0 !important;
+}
+.blog-link:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.blog-link:hover:after {
+    opacity: 1;
+}
+.text {
+	font-size: 16px;
+}
+.description {
+	margin-top: 10px;
+	padding: 5px;
+}
+
+#instagram {
+	height: 500px;
+    overflow-y: hidden;
+}
+.igPic {
+	vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+}
+.row-fluid{
+    white-space: nowrap;
+}
+.box{
+    overflow-x:auto;
+}
+.ig {
+	color: #ffffff;
+	background-color: #3c3c3c;
+	margin-top: 0 !important;
+	padding-top: 3px;
+	padding-bottom: 5px;
+	margin-bottom: 70px;
+	height: 100%;
+}
+.igbutton {
+	border: 1px solid white;
+	background-color: none;
+	margin-top: 0 !important;
+	white-space: nowrap;
+	color: white;
+}
+.igbutton:hover {
+	border: 1px solid white;
+	background-color: none;
+	margin: 0 !important;
+	white-space: nowrap;
+	color: lightgrey;
+	text-decoration: none;
+}
+.sponsor {
+	min-height: 150px;
+}
+#form {
+	border: solid 2px lightgrey;
+	border-radius: 10px;
+	margin-top: 10%;
+	padding: 20px;
+	box-shadow: 10px 10px 5px grey;
+}
+#editform {
+	padding: 20px;
+}
+.wrapper {
+	margin-top: 40px;
+}
+
+

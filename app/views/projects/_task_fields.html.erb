@@ -1,0 +1,25 @@
+<div class="nested-fields">
+<hr>
+  <%= f.hidden_field :user_id, value:current_user.id %>
+  <div class="col-md-9">
+    <%= f.text_field :title, label:"Task" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.date_select :deadline %>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, label:"Special Instructions" %>
+  </div>
+  <div class="field">
+    <fieldset id="assignees">
+      <%= f.fields_for :assignees do |assign| %>
+      <%= render 'assignee_fields', :f => assign %>
+      <% end %>
+    </fieldset>
+    <%= link_to_add_association ' Assign Task', f, :assignees, class:"btn btn-success btn-block" %>
+  </div>
+  <hr>
+  <p class="links">
+    <%= link_to_remove_association "Remove Task", f, class:"btn btn-danger btn-block" %>
+  </p>
+</div>
