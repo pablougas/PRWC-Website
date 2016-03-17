@@ -4,7 +4,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.joins(:user).where("user_id = users.id")
+    @blogs = Blog.joins(:user).where("user_id = users.id").order("created_at DESC")
   end
 
   # GET /blogs/1

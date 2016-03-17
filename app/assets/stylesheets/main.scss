@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@media (min-width : 1224px) {
+	#menu-margin {
+		margin-left: 100px;
+	}
+}
 html,body{
     height: 100%;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
@@ -15,8 +20,8 @@ html,body{
 .green {
   	color: #7aa13f;
   }
-#menu-margin {
-	margin-left: 100px;
+.inline {
+	display: inline-block;
 }
 .navbar {
 	padding: 0 !important;
@@ -27,7 +32,7 @@ html,body{
 	width: 100%;
 	margin: 0 !important;
 	font-size: 120%;
-	font-weight: 200;
+	font-weight: 700;
     text-align: center;
     > li {
       float: none;
@@ -47,7 +52,7 @@ html,body{
 	color: white;
 }
 .margin {
-	margin-bottom: 32px;
+	margin-bottom: 50px;
 }
 .bigmgn {
 	margin-top: 80px;
@@ -87,6 +92,32 @@ html,body{
 .wrapper {
 	padding-bottom: 80px;
 }
-
+.blog {
+   padding: 0 !important;
+   margin-bottom:20px;
+   border-radius: 0 !important;
+   max-height: 275px;
+   overflow: hidden;
+}
+.blog-link:after {
+    content: '\A';
+    position: absolute;
+    width: 100%; height:100%;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity: 0;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+}
+.blog-link:hover:after {
+    opacity: 1;
+}
+.blog-title-lg {
+	margin-top: 70px;
+}
+.blog-title-sm {
+	color: white;
+	background-color: black;
+}
 
 

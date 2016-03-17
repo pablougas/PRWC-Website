@@ -32,19 +32,17 @@
                     <tbody>
                       <% @tasks.each do |task| %>
                         <tr>
-                          <td><%= task.project.title %></td>
-                          <td><%= task.title %></td>
-                          <td><%= task.content %></td>
-                          <td><%= task.deadline %></td>
-                          <% if task.completed %>
+                          <td><%= task.task.title %></td>
+                          <td><%= task.task.content %></td>
+                          <td><%= task.task.deadline %></td>
+                          <% if task.task.completed %>
                             <td>Completed</td>
                             <% else %>
                             <td>Incomplete</td>
                           <% end %>
                           <td>
-                            <%= link_to task do %><i class="fa fa-eye"></i><% end %> &nbsp;|&nbsp;
-                            <%= link_to edit_task_path(task), data: {toggle: "tooltip", title: "Edit"} do %><i class="fa fa-pencil"></i><% end %> &nbsp;|&nbsp;
-                            <%= link_to task, method: :delete, data: { confirm: 'Are you sure?' } do %><i class="fa fa-remove"></i><% end %></td>
+                            <%= link_to task.task do %><i class="fa fa-eye"></i><% end %> &nbsp;|&nbsp;
+                            <%= link_to edit_task_path(task.task), data: {toggle: "tooltip", title: "Edit"} do %><i class="fa fa-pencil"></i><% end %>
                         </tr>
                       <% end %>
                     </tbody>

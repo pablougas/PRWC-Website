@@ -24,6 +24,7 @@
                            <th>Title</th>
                            <th>Description</th>
                            <th>Author</th>
+                           <th>Created On</th>
                            <th colspan="3"></th>
                         </tr>
                      </thead>
@@ -33,6 +34,7 @@
                            <td><%= link_to blog.title, edit_blog_path(blog) %></td>
                            <td><%= blog.description %></td>
                            <td><%= blog.user.first_name %> <%= blog.user.last_name %></td>
+                           <td><%= blog.created_at.strftime("%b. %d, %Y") %></td>
                            <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
                            <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                         </tr>

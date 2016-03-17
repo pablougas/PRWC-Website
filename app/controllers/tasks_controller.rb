@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.joins(:project).where("project_id = projects.id")
+    @tasks = Assignee.joins(:task).where("task_id = tasks.id")
   end
 
   # GET /tasks/1
@@ -69,6 +69,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:project_id, :user_id, :title, :content, :deadline, :completed, assignees_attributes: [:id, :user_id, :task_id])
+      params.require(:task).permit(:project_id, :user_id, :title, :content, :deadline, :completed)
     end
 end

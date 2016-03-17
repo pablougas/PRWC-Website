@@ -100,10 +100,10 @@
 				<%= image_tag("board/Mark_Palmer.png", class:"img-responsive") %>
 			</div>
 		</div>
-		<div class="teamBox">
-			<p>This is a break point.</p>
-		</div>	
 	</div>
+	<div class="teamBox">
+		<p>This is a break point.</p>
+	</div>	
 	<!-- Blog Partial -->
 	<div class="col-md-12 bigmgn">
 		<h1 class="text-center thicker">WATERSHED BLOG</h1>
@@ -112,35 +112,39 @@
 	<div class="center-icon center-block img-square">
 		<%= image_tag("break-element.jpg", class:"img-responsive") %>
 	</div>
-	<div class="container">
-		<div class="col-md-12">
-			<div class="col-md-10 col-md-offset-1 border blog">
-				<a href="#" class="blog-link">
-					<div class="col-sm-7 col-md-5 nopadding">
-						<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
-					</div>
-					<div class="col-sm-5 col-md-7">
-						<span class="">
-							<h3>Title Goes Here</h3>
-							<small>By Patty Denny - 12/12/15</small>
-						</span>
-					</div>
-				</a>
+	<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
+		<a href="#" class="blog-link">
+			<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
+				<h3>Title Goes Here</h3>
 			</div>
-			<div class="col-md-10 col-md-offset-1 border blog">
-				<a href="#" class="blog-link">
-					<div class="col-sm-7 col-md-5 col-md-push-7 nopadding">
-						<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
-					</div>
-					<div class="col-sm-5 col-md-7 col-md-pull-5">
-						<span class="">
-							<h3>Title Goes Here</h3>
-							<small>By Patty Denny - 12/12/15</small>
-						</span>
-					</div>
-				</a>
+			<div class="col-md-12 nopadding">
+				<div class="col-sm-12 col-md-5 nopadding">
+					<%= image_tag("img/meadow.jpeg", class:"img-responsive") %>
+				</div>
+				<div class="col-md-7 hidden-xs hidden-sm">
+					<span class="blog-title-lg">
+						<h3>Title Goes Here</h3>
+						<small>By Patty Denny - 12/12/15</small>
+					</span>
+				</div>
 			</div>
-		</div>
+		</a>
+	</div>
+	<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
+		<a href="#" class="blog-link">
+			<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
+				<h3>Title Goes Here</h3>
+			</div>
+			<div class="col-sm-12 col-md-5 col-md-push-7 nopadding">
+				<%= image_tag("img/floods-in-washington.jpeg", class:"img-responsive pull-right") %>
+			</div>
+			<div class="hidden-xs col-md-7 col-md-pull-5">
+				<span>
+					<h3>Title Goes Here</h3>
+					<small>By Patty Denny - 12/12/15</small>
+				</span>
+			</div>
+		</a>
 	</div>
 	<div class="center-icon center-block img-square">
 		<%= image_tag("break-element.jpg", class:"img-responsive") %>
@@ -152,13 +156,13 @@
 		<div class="container">
 			<div class="col-md-12">
 				<div class="row">
-					<div class="hidden-xs col-md-4 plans">
+					<div class="hidden-xs hidden-sm col-md-4 plans">
 						<%= image_tag("bg/member1.png", class:"img-responsive") %>
 					</div>				
-					<div class="hidden-xs col-md-4 plans">
+					<div class="hidden-xs hidden-sm col-md-4 plans">
 						<%= image_tag("bg/member2.png", class:"img-responsive") %>
 					</div>
-					<div class="hidden-xs col-md-4 plans">
+					<div class="hidden-xs hidden-sm col-md-4 plans">
 						<%= image_tag("bg/member3.png", class:"img-responsive") %>
 					</div>
 					<h3 class="text-center"><a href="#contact" id="plan_link">View All Subscriptions</a></h3>
@@ -195,3 +199,4 @@
 		</div>
 	</div>
 </div>
+
