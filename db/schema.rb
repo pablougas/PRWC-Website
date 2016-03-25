@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218034909) do
+ActiveRecord::Schema.define(version: 20160323194828) do
 
   create_table "assignees", force: :cascade do |t|
     t.integer  "user_id"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20160218034909) do
   end
 
   add_index "events", ["user_id"], name: "index_events_on_user_id"
+
+  create_table "notes", force: :cascade do |t|
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.text     "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "notes", ["task_id"], name: "index_notes_on_task_id"
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"

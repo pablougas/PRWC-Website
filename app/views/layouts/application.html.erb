@@ -1,105 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Puyallup River Watershed Council</title>
-	<%= favicon_link_tag 'favicon.ico' %>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Puyallup River Watershed Council</title>
+		<%= favicon_link_tag 'favicon.ico' %>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
 
-	<%= stylesheet_link_tag "bootstrap-glyphicons.css" %>
-	<%= stylesheet_link_tag 'application', "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" %>
-</head>
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12 padding">
-				<% if user_signed_in? %>
-				<%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %>
-				<% else %>
-				<%= link_to "Sign Up", new_user_registration_path %>
-				<%= link_to "Sign In", user_session_path %>
-				<% end %>
-				<div class="col-xs-6 col-md-8 col-md-offset-1">
-					<div class="img-square">
-						<%= image_tag("logo2.png", class: "img-responsive logo") %>
+		<%= stylesheet_link_tag "bootstrap-glyphicons.css" %>
+		<%= stylesheet_link_tag 'application', "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" %>
+	</head>
+	<body>
+		<header>
+			<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top nopadding">
+				<div class="container-fluid nopadding">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+	        			<%= image_tag('logo_small.png', class:'img-responsive logo hidden-md hidden-lg pull-left') %>
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
 					</div>
-				</div>
-				<div class="col-xs-6 col-md-2">
-					<span class="padding">
-						<h4 class="text-right text-muted"><a href="mailto:prwc.sec@gmail.com"><i class="fa fa-envelope"></i></a>  prwc.sec@gmail.com</h4>
-						<h4 class="text-right text-muted"><a href="mailto:prwc.sec@gmail.com"><i class="fa fa-map-marker"></i></a>  333 South Meridian<br> Puyallup, WA 98372</h4>
-					</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row nopadding">
-		<nav id="myNavbar" class="navbar navbar-inverse  nopadding">
-			<div class="container-fluid nopadding">
 
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-left" id="main-nav">
-					<ul class="nav navbar-nav">
-						<li id="menu-margin"class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
-						<li class="<%= 'active' if current_page?(home_about_path) %>"><%= link_to "About", home_about_path %></li>
-						<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>
-						<li class="<%= 'active' if current_page?(home_blog_path) %>"><%= link_to "Blog", home_blog_path %></li>
-						<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Sponsor", home_memberships_path %></li>
-						<li id="contactScroll" class="<%= 'active' if current_page?(home_index_path(:anchor => "contact")) %>"><%= link_to("Contact", home_index_path(:anchor => "contact")) %></li>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-left" id="main-nav">
+	        			<%= image_tag('logo_small.png', class:'img-responsive logo hidden-sm hidden-xs') %>
+						<ul class="nav navbar-nav">
+							<li id="menu-margin"class="<%= 'active' if current_page?(home_index_path) %>"><%= link_to "Home", home_index_path %></li>
+							<li class="<%= 'active' if current_page?(home_about_path) %>"><%= link_to "About", home_about_path %></li>
+							<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>
+							<li class="<%= 'active' if current_page?(home_blog_path) %>"><%= link_to "Blog", home_blog_path %></li>
+							<li class="<%= 'active' if current_page?(home_gallery_path) %>"><%= link_to "Gallery", home_gallery_path %></li>
+							<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Sponsor", home_memberships_path %></li>
+							<li id="contactScroll" class="<%= 'active' if current_page?(home_index_path(:anchor => "contact")) %>"><%= link_to("Contact", home_index_path(:anchor => "contact")) %></li>
+							<li class="hidden-sm hidden-md hidden-lg"><%= link_to "Sign In", user_session_path %></li>
+						</ul>
+					</div> 
+					<div class="hidden-xs collapse navbar-collapse navbar-right">
+						<ul class="nav navbar-nav" id="removeOnCollapse">
+							<li class="inline"><a href="#" class="inline"><i class="fa fa-facebook-f"></i></a></li>
+							<li class="inline"><a href="#" class="inline"><i class="fa fa-linkedin"></i></a></li>
+							<li class="inline"><a href="#" class="inline"><i class="fa fa-instagram"></i></a></li>
+							<li class="inline"><a href="#" class="inline"><i class="fa fa-youtube"></i></a></li>
+							<% if user_signed_in? %>
+							<li>
+								<%= link_to root_path do %>
+								<i class="fa fa-dashboard"></i>
+								<% end %>
+							</li>
+							<li>
+								<%= link_to destroy_user_session_path, method: 'delete' do %>
+								<i class="fa fa-power-off"></i>
+								<% end %>
+							</li>
+							<% else %>
+							<li><% link_to "Sign Up", new_user_registration_path %></li>
+							<li>
+								<%= link_to user_session_path do %>
+								<i class="fa fa-sign-in"></i>
+								<% end %>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>					
+		</header>
+			<% if notice %>
+			<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+			<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+			
+			<%= yield %>
+		<footer>
+			<nav id="top" class="navbar navbar-inverse navbar-fixed-bottom">
+				<nav class="navbar navbar-inverse navbar-fixed-bottom">
+					<div class="container-fluid">
+					</div>
+				</nav>
+			</nav>
+			<nav class="navbar navbar-inverse navbar-fixed-bottom">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav navbar-right inline">
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-facebook-f"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-linkedin"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-instagram"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-youtube"></i></a></li>
 					</ul>
-				</div> 
-				<div class="hidden-xs collapse navbar-collapse navbar-right">
-					<ul class="nav navbar-nav" id="removeOnCollapse">
-						<li class="inline"><a href="#" class="inline"><i class="fa fa-facebook-f"></i></a></li>
-						<li class="inline"><a href="#" class="inline"><i class="fa fa-linkedin"></i></a></li>
-						<li class="inline"><a href="#" class="inline"><i class="fa fa-instagram"></i></a></li>
-						<li class="inline"><a href="#" class="inline"><i class="fa fa-youtube"></i></a></li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-	</div>
-	<% if notice %>
-	<p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-	<p class="alert alert-danger"><%= alert %></p>
-	<% end %>
-
-	<%= yield %>
-
-	<nav id="top" class="navbar navbar-inverse navbar-fixed-bottom">
-		<nav class="navbar navbar-inverse navbar-fixed-bottom">
-			<div class="container-fluid">
-			</div>
-		</nav>
-	</nav>
-	<nav class="navbar navbar-inverse navbar-fixed-bottom">
-		<div class="container-fluid">
-			<ul class="nav navbar-nav navbar-right inline">
-				<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-facebook-f"></i></a></li>
-				<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-linkedin"></i></a></li>
-				<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-instagram"></i></a></li>
-				<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-youtube"></i></a></li>
-			</ul>
-		</div>
-	</nav>
-</body>
-<script type="text/javascript">
-$(document).ready(function() { 
-	$("html").niceScroll();
-}
-);
-</script>
+				</div>
+			</nav>
+		</footer>
+	</body>
 </html>

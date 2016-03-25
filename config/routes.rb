@@ -1,8 +1,11 @@
 Rails.application.routes.draw do  
-  resources :tasks
+
+  resources :tasks do
+    resources :notes
+  end
   resources :blogs
   resources :events, :only => [:index, :new, :edit, :create, :update, :destroy]
-  resources :projects, :only => [:new, :edit, :create, :update, :destroy]
+  resources :projects, :only => [:show, :new, :edit, :create, :update, :destroy]
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -11,7 +14,9 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/about'
   get 'home/events'
+  get 'home/gallery'
   get 'home/blog'
+  get 'home/post/:id', to: 'home#post', as: 'post'
   get 'home/memberships'
 
   match '/contacts', to: 'contacts#new', via: 'get'

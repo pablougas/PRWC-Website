@@ -1,0 +1,23 @@
+<%= bootstrap_form_for [@task, @note] do |f| %>
+  <% if @note.errors.any? %>
+    <div id="error_explanation" class="col-md-12">
+      <h2><%= pluralize(@note.errors.count, "error") %> prohibited this note from being saved:</h2>
+
+      <ul>
+      <% @note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.hidden_field :user_id, value:current_user.id %>
+    <%= f.hidden_field :task_id %>
+  <div class="field col-md-12">
+    <%= f.text_area :note, hide_label:true %>
+  </div>
+  <div class="actions col-md-12">
+    <div class="pull-right">
+    <%= f.submit %>
+    </div>
+  </div>
+<% end %>

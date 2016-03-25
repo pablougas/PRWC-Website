@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
+//= require moment
+//= require bootstrap-datetimepicker
+//= require fancybox
 //= require tether
 //= require cocoon
-//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .

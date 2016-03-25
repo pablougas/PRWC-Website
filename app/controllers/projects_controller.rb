@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
-  include ProjectsHelper
   before_action :authenticate_user!
-  before_action :set_project, only: [:edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  include ProjectsHelper
 
   # GET /projects
   # GET /projects.json
@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    range?
   end
 
   # GET /projects/new

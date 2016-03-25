@@ -1,0 +1,54 @@
+<div class="row nopadding">
+	<div class="col-md-10 col-md-offset-1 wrapper">
+		<div class="col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation"><%= link_to "Home", welcome_index_path %>
+					<div style="padding-left:30px;">
+						<ul class="nav nav-pills nav-stacked">
+							<li role="presentation"><%= link_to "Project Details", :back %></li>
+								<div style="padding-left:30px;">
+									<ul class="nav nav-pills nav-stacked">
+										<li role="presentation" class="active"><%= link_to "Task Notes", url_for(params) %></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li role="presentation"><%= link_to "Events", events_path %></li>
+				<li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
+				<li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
+				<li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+			</ul>
+			<hr>
+		</div>
+		<div class="col-md-9">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading clearfix">
+						<h4 class="pull-left">Task: <%= @task.title %></h4> 
+					</div>
+					<div class="panel-body">
+						<div class="col-md-12">
+							<div class="col-md-12 note-box">
+								<% @notes.each do |note| %>
+									<span class="note">
+										<p class="text1"><%= note.note %></p>
+										<p class="text2">
+										by <%= note.user.first_name %> <%= note.user.last_name %> - <%= note.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %d, %Y - %l:%M %p") %>
+										</p>
+										<hr>
+									</span>
+								<% end %>
+							</div>
+							<div class="col-md-12">
+							<%= render 'form' %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

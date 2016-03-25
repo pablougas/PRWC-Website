@@ -16,11 +16,12 @@
     <%= f.text_field :title, hide_label: true, placeholder:'Post Title' %>
   </div>
   <div class="field">
-    <%= f.text_area :description, hide_label: true, placeholder:'Post Content' %>
+    <%= f.text_area :description, hide_label: true, placeholder:'Post Content', rows: 16  %>
   </div>
     <%= f.hidden_field :user_id, value:current_user.id %>
   <div class="field">
     <%= f.file_field :avatar %>
+    <small>Image dimensions must be 600px wide x 400px tall.</small>
   </div>
   <div class="actions">
     <%= f.submit %>

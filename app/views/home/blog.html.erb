@@ -1,74 +1,57 @@
-<head>
-	<title>Blog</title>
-
-</head>
-
-	<div class="row">
-		<div class="container-fluid nopadding">
-			<!-- Instagram Banner -->
-			<div class="box">
-				<div id="instagram" class="row-fluid" dir="ltr">
-					<% @instagram.each do |instagram| %>
-					<div class="igPic nopadding">
-						<%= link_to href:'http://www.instagram.com/thepabfather', :class => "blog-link" do %>
-				    		<%= image_tag instagram.images.standard_resolution.url, class:"img-responsive" %>
-				    	<% end %>
-					</div>
-					<% end %>
+	<div class="row nopadding">
+		<!-- Instagram Banner -->
+		<div class="box">
+			<div id="instagram" class="row-fluid" dir="ltr">
+				<% @instagram.each do |instagram| %>
+				<div class="igPic nopadding">
+					<%= link_to href:'http://www.instagram.com/thepabfather', :class => "blog-link" do %>
+				    <%= image_tag instagram.images.standard_resolution.url, class:"img-responsive" %>
+				  	<% end %>
 				</div>
+				<% end %>
 			</div>
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-12 ig">
-			<h1 class="text-center thicker">Share your #PRWLife stories with us on <a href="https://www.instagram.com/">Instagram</a></h1>
-		</div>
-	</div>
-	<div class="col-md-12 bigmgn">
-		<h1 class="text-center thicker">WATERSHED BLOG</h1>
+		<h1 class="text-center thicker ig">Share your #PRWLife stories with us on <a href="https://www.instagram.com/">Instagram</a></h1>
+		<h1 class="text-center thicker bigmgn">WATERSHED BLOG</h1>
 		<h5 class=" text-center text-muted">Learn about what's going on in your Watershed</h5 class="text-muted">		
-	</div>
-	<div class="col-md-12">
 		<div class="center-icon center-block">
 			<div class="img-square">
 				<%= image_tag("break-element.jpg", class:"img-responsive") %>
 			</div>
 		</div>
-	</div>
-	<div class="col-md-10 col-md-offset-1">
 		<div class="col-md-12">
-			<div class="col-md-10 col-md-offset-1 border blog">
-				<a href="#" class="blog-link">
-					<div class="col-sm-7 col-md-5 nopadding">
-						<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
-					</div>
-					<div class="col-sm-5 col-md-7">
-						<span class="">
-							<h3>Title Goes Here</h3>
-							<small>By Patty Denny - 12/12/15</small>
-						</span>
-					</div>
-				</a>
+			<div class="col-md-8 col-md-offset-2">
+			<% @blogs.each do |b| %>
+				<% if b.id.even? %>
+				<div class="col-md-8 col-md-offset-2 border blog">
+					<a href="<%= post_path(b) %>" class="blog-link">
+						<div class="col-sm-7 col-md-5 nopadding">
+							<%= image_tag b.avatar.url(:medium), class:"img-responsive" %>
+						</div>
+						<div class="col-sm-5 col-md-7">
+							<span class="">
+								<h3><%= b.title %></h3>
+								<small>By Patty Denny - 12/12/15</small>
+							</span>
+						</div>
+					</a>
+				</div>
+				<% else %>
+				<div class="col-md-8 col-md-offset-2 border blog">
+					<a href="<%= post_path(b) %>" class="blog-link">
+						<div class="col-sm-7 col-md-5 col-md-push-7 nopadding">
+							<%= image_tag b.avatar.url(:medium), class:"img-responsive pull-right" %>
+						</div>
+						<div class="col-sm-5 col-md-7 col-md-pull-5">
+							<span class="">
+								<h3><%= b.title %></h3>
+								<small>By Patty Denny - 12/12/15</small>
+							</span>
+						</div>
+					</a>
+				</div>
+				<% end %>
+			<% end %>
 			</div>
-			<div class="col-md-10 col-md-offset-1 border blog">
-				<a href="#" class="blog-link">
-					<div class="col-sm-7 col-md-5 col-md-push-7 nopadding">
-						<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
-					</div>
-					<div class="col-sm-5 col-md-7 col-md-pull-5">
-						<span class="">
-							<h3>Title Goes Here</h3>
-							<small>By Patty Denny - 12/12/15</small>
-						</span>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="col-md-12 bigmgn">
-		<div class="center-icon center-block">
-			<div class="img-square">
-				<%= image_tag("break-element.jpg", class:"img-responsive") %>
-			</div>
-		</div>
-	</div>
+		</div>	
+	</div>	

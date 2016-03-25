@@ -1,24 +1,19 @@
-<div class="row">
-	<div class="container-fluid nopadding">
-		<!-- Carousel -->
+	<!-- Carousel -->
+	<div class="row nopadding">
 		<div class="embed-responsive embed-responsive-4by6 short">
-	  		<iframe width="100%" height="500" src="https://www.youtube.com/embed/QjKKQgtxqKg" frameborder="0" allowfullscreen></iframe>
-	  	</div>	
+		  	<iframe width="100%" height="500" src="https://www.youtube.com/embed/QjKKQgtxqKg" frameborder="0" allowfullscreen></iframe>
+		</div>	
 		<!-- About The Watershed Council -->
-		<div class="col-md-12 bigmgn">
-			<h1 class="text-center thicker">Watershed Events</h1>
-			<h5 class=" text-center text-muted">Our field trips & meetings are free and open to the public. </br>
-				We encourage you to join us to learn more about the Puyallup River Watershed.
-			</h5>
-		</div>
-		<div class="col-md-12">
-			<div class="center-icon center-block">
-				<div class="img-square">
-					<%= image_tag("break-element.jpg", class:"img-responsive") %>
-				</div>
+		<h1 class="text-center thicker bigmgn">Watershed Events</h1>
+		<h5 class=" text-center text-muted">Our field trips & meetings are free and open to the public. </br>
+			We encourage you to join us to learn more about the Puyallup River Watershed.
+		</h5>
+		<div class="center-icon center-block">
+			<div class="img-square">
+				<%= image_tag("break-element.jpg", class:"img-responsive") %>
 			</div>
 		</div>
-		<div class="container">
+		<div class="col-md-12">
 			<% @events.each do |e| %> 
 			<div class="col-sm-12 col-md-8 col-md-offset-2 event">
 				<% if e.link? %>
@@ -28,10 +23,9 @@
 				<h2><%= e.title %></h2>
 				<h4><%= e.date.strftime("%b. %d, %Y - %l:%M %p") %></h4>
 				<div>
-				<p class="border description"><%= e.description %></p>
+					<p class="border description"><%= e.description %></p>
 				</div>
 			</div>
 			<% end %>
 		</div>
 	</div>
-</div>

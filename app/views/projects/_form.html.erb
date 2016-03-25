@@ -1,4 +1,5 @@
-<div id="editform">
+<div id="editform" class="row">
+  <div class="col-md-12">
 <%= bootstrap_form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -16,10 +17,10 @@
   <div class="col-md-12">
     <%= f.check_box :complete, label: "Mark project as completed" %>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-5">
     <%= f.text_field :title, placeholder:'Title' %>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-4">
     <%= f.date_select :deadline %>
   </div>
   <div class="col-md-3">
@@ -38,9 +39,11 @@
   <div class="links">
     <%= link_to_add_association ' Add Task', f, :tasks, class:"btn btn-primary btn-block" %>
   </div>
+  <div></div>
   <hr>
   <div class="actions">
     <%= f.submit "Save", class:"btn btn-success" %>
   </div>
 <% end %>
+  </div>
 </div>

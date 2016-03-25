@@ -1,15 +1,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
-@media (min-width : 1224px) {
+@media (min-width : 768px) {
 	#menu-margin {
-		margin-left: 100px;
+		margin-left: 150px;
 	}
 }
-html,body{
+html {
     height: 100%;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
   	Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+body { 
+	padding-bottom: 60px; 
+}
+.logo {
+	position: absolute;
+	margin-left: 0px;
+	margin-top: 0px;
 }
 .thick {
   	font-weight: 600;
@@ -20,6 +29,11 @@ html,body{
 .green {
   	color: #7aa13f;
   }
+.text {
+	font-size: 16px;
+	color: darkgrey;
+	font-weight: 700;
+}
 .inline {
 	display: inline-block;
 }
@@ -31,7 +45,6 @@ html,body{
 .navbar-nav > li > a {
 	width: 100%;
 	margin: 0 !important;
-	font-size: 120%;
 	font-weight: 700;
     text-align: center;
     > li {
@@ -55,10 +68,14 @@ html,body{
 	margin-bottom: 50px;
 }
 .bigmgn {
-	margin-top: 80px;
+	margin-top: 100px;
 }
-.mgntop {
-	margin-top: 40px;
+.biggermgn {
+	margin-top: 400px;
+	font-size: 40px;
+	padding: 10px;
+	background-color: rgba(0,0,0,.5);
+	vertical-align: bottom;
 }
 .nopadding {
    padding: 0 !important;
@@ -67,6 +84,9 @@ html,body{
 }
 .padding {
 	padding: 10px;
+}
+.border {
+	border: 1px solid lightgrey;
 }
 .back-to-top i {
   	font-size: 60px;
@@ -92,32 +112,8 @@ html,body{
 .wrapper {
 	padding-bottom: 80px;
 }
-.blog {
-   padding: 0 !important;
-   margin-bottom:20px;
-   border-radius: 0 !important;
-   max-height: 275px;
-   overflow: hidden;
-}
-.blog-link:after {
-    content: '\A';
-    position: absolute;
-    width: 100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.6);
-    opacity: 0;
-    transition: all 1s;
-    -webkit-transition: all 1s;
-}
-.blog-link:hover:after {
-    opacity: 1;
-}
-.blog-title-lg {
-	margin-top: 70px;
-}
-.blog-title-sm {
-	color: white;
-	background-color: black;
+.wrapper {
+	margin-top: 40px;
 }
 
 

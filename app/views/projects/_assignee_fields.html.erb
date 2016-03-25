@@ -1,8 +1,14 @@
 <div class="nested-fields">
+	<div class="col-md-12">
+		<div class="col-xs-6 col-sm-6 col-md-6">
 		<%= f.collection_select :user_id, User.all, :id, :full_name, {:include_blank => true} %>
-	<p class="links">
-    	<%= link_to_remove_association f, class: 'btn btn-default btn-xs' do %>
-    		<i class="glyphicon glyphicon-remove"></i>
-    	<% end %>
-  	</p>
+		</div>
+		<div clas="col-xs-6 col-sm-6 col-md-6">
+			<p class="links">
+		    	<%= link_to_remove_association f, class: 'btn btn-danger form-btn' do %>
+		    		<i class="glyphicon glyphicon-remove"> Remove</i>
+		    	<% end %>
+	  		</p>
+		</div>
+	</div>
 </div>

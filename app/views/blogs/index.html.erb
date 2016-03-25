@@ -1,5 +1,5 @@
-<div class="col-md-10 col-md-offset-1">
-   <div class="wrapper">
+<div class="row nopadding">
+   <div class="col-md-10 col-md-offset-1 wrapper">
       <div class="col-md-3">
          <ul class="nav nav-pills nav-stacked">
             <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
@@ -31,8 +31,8 @@
                      <tbody>
                         <% @blogs.each do |blog| %>
                         <tr>
-                           <td><%= link_to blog.title, edit_blog_path(blog) %></td>
-                           <td><%= blog.description %></td>
+                           <td><%= link_to blog.title, post_path(blog) %></td>
+                           <td><%= truncate(blog.description, :length => 500) %></td>
                            <td><%= blog.user.first_name %> <%= blog.user.last_name %></td>
                            <td><%= blog.created_at.strftime("%b. %d, %Y") %></td>
                            <td><%= link_to 'Edit', edit_blog_path(blog) %></td>

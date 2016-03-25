@@ -19,6 +19,13 @@ end
 #Bootstrap forms
 gem 'bootstrap_form'
 
+#Bootstrapo Date/Time picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
+#Fancybox for pretty image display
+gem 'fancybox-rails'
+
 #instagram
 gem 'instagram'
 

@@ -1,24 +1,24 @@
-<div class="col-md-10 col-md-offset-1">
-	<div class="wrapper">
+<div class="row nopadding">
+	<div class="col-md-10 col-md-offset-1 wrapper">
 		<div class="col-md-3">
-         	<ul class="nav nav-pills nav-stacked">
-            	<li role="presentation" class="active"><%= link_to "Home", welcome_index_path %></li>
-            	<li role="presentation"><%= link_to "Events", events_path %></li>
-            	<li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
-            	<li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
-            	<li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
-         	</ul>
-         	<hr>
-      	</div>
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" class="active"><%= link_to "Home", welcome_index_path %></li>
+				<li role="presentation"><%= link_to "Events", events_path %></li>
+				<li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
+				<li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
+				<li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+			</ul>
+			<hr>
+		</div>
 		<div class="col-md-9">
 			<div class="col-md-6">
 				<div class="panel panel-primary">
-			        <div class="panel-heading clearfix">
-			        	<h4 class="pull-left">Upcoming Events</h4> 
-			        	<%= link_to new_event_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Event<% end %>
-			        </div>
-				    <div class="panel-body">
-				    	<div class="table-responsive">
+					<div class="panel-heading clearfix">
+						<h4 class="pull-left">Upcoming Events</h4> 
+						<%= link_to new_event_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Event<% end %>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
 							<table class="table table-hover">
 								<thead>
 									<tr class="thick">
@@ -27,31 +27,30 @@
 										<td>Date</td>
 									</tr>
 								</thead>
-						  		<tbody>
-							    	<% @events.each do |e| %>
-							    	<tr>
-							    		<td><%= link_to edit_event_path(e) do %>
-							    			<%= e.title %>
-							    			<% end %>
-							    		</td>
-							    		<td><%= truncate(e.description, :length => 30) %></td>
-							    		<td><%= e.date.strftime("%b. %d, %Y @ %l:%M %p") %></td>
-							    	</tr>
-							    	<% end %>
-							    </tbody>
+								<tbody>
+									<% @events.each do |e| %>
+									<tr data-link="<%= edit_event_path(e) %>">
+										<td>
+											<%= e.title %>
+										</td>
+										<td><%= truncate(e.description, :length => 30) %></td>
+										<td><%= e.date.strftime("%b. %d, %Y @ %l:%M %p") %></td>
+									</tr>
+									<% end %>
+								</tbody>
 							</table>
 						</div>
 					</div>
-			    </div>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="panel panel-primary">
-			        <div class="panel-heading clearfix">
-			        	<h4 class="pull-left">Recent Blog Posts</h4> 
-			        	<%= link_to new_blog_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Post<% end %>
-			        </div>
-				    <div class="panel-body">
-				    	<div class="table-responsive">
+					<div class="panel-heading clearfix">
+						<h4 class="pull-left">Recent Blog Posts</h4> 
+						<%= link_to new_blog_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Post<% end %>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
 							<table class="table table-hover">
 								<thead>
 									<tr class="thick">
@@ -60,80 +59,80 @@
 										<td>Created On</td>
 									</tr>
 								</thead>
-						  		<tbody>
-							    	<% @posts.each do |b| %>
-							    	<tr>
-							    		<td><%= link_to edit_blog_path(b) do %>
-							    			<%= b.title %>
-							    			<% end %>
-							    		</td>
-							    		<td><%= truncate(b.description, :length => 30) %></td>
-							    		<td><%= b.created_at.strftime("%b. %d, %Y") %></td>
-							    	</tr>
-							    	<% end %>
-							    </tbody>
+								<tbody>
+									<% @posts.each do |b| %>
+									<tr data-link="<%= post_path(b) %>">
+										<td><%= b.title %></td>
+										<td><%= truncate(b.description, :length => 30) %></td>
+										<td><%= b.created_at.strftime("%b. %d, %Y") %></td>
+									</tr>
+									<% end %>
+								</tbody>
 							</table>
 						</div>
 					</div>
-			    </div>
+				</div>
 			</div>
 			<div class="col-md-12">
 				<div class="panel panel-primary">
-			        <div class="panel-heading clearfix">
-			        	<h4 class="pull-left">Projects</h4> 
-			        	<%= link_to new_project_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Project<% end %>
-			        </div>
-				    <div class="panel-body">
+					<div class="panel-heading clearfix">
+						<h4 class="pull-left">Projects</h4> 
+						<%= link_to new_project_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Project<% end %>
+					</div>
+					<div class="panel-body">
 						<div class="table-responsive">
 							<table class="table table-hover">
-						  		<thead>
-						  			<tr class="thick">
-						  				<td>Priority Level</td>
-						  				<td>Project Name</td>
-							  			<td>Created By</td>
-							  			<td>Created On</td>
-							  			<td>Deadline</td>
-							 			<td>Progress</td>
-						  			</tr>
-						  		</thead>
-						  		<tbody>
-						  			<% @projects.each do |p| %>
-						  			<tr>
-							  			<td><%= p.priority %></td>
-							  			<td><%= link_to p.title, edit_project_path(p) %></a></td>
-							  			<td><%= p.user.first_name %> <%= p.user.last_name %></td>
-							  			<td><%= p.created_at.strftime("%b. %d, %Y") %></td>
-							  			<td><%= p.deadline.strftime("%b. %d, %Y") %></td>
-							  			<td>
-							  				<% if p.tasks.count == 0 %>
-							  					No tasks created
-							  				<% end %>
-							  				<% if p.tasks.count == 1 %>
-							  				<div class="progress">
-							  					<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
-										    		0%
-										  		</div>
+								<thead>
+									<tr class="thick">
+										<td>Priority Level</td>
+										<td>Project Name</td>
+										<td>Created By</td>
+										<td>Created On</td>
+										<td>Deadline</td>
+										<td>Progress</td>
+									</tr>
+								</thead>
+								<tbody>
+									<% @projects.each do |p| %>
+									<tr data-link="<%= project_path(p) %>" target='blank'>
+										<td><%= p.priority %></td>
+										<td><%= p.title %></a></td>
+										<td><%= p.user.first_name %> <%= p.user.last_name %></td>
+										<td><%= p.created_at.in_time_zone("Pacific Time (US & Canada)").strftime("%b. %d, %Y") %></td>
+										<td><%= p.deadline.strftime("%b. %d, %Y") %></td>
+										<td>
+											<% if p.tasks.count == 0 %>
+											No tasks created
+											<% elsif p.tasks.count == 1 %>
+											<div class="progress">
+												<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 15%">
+													0%
+												</div>
 											</div>
-							  				<% end %>
-							  				<% if p.tasks.where(:completed => true).count > 0 %>
-							  				<div class="progress">
-							  					<% math = ( p.tasks.where(:completed => true).count.to_f / p.tasks.count) %>
-							  					<% decimal = math * 100 %>
-							  					<% percent = number_with_precision(decimal, precision: 0)  %>
-										  		<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%">
-										    		<%= percent %>%
-										  		</div>
+											<% else p.tasks.where(:completed => true).count > 0 %>
+											<div class="progress">
+												<% math = ( p.tasks.where(:completed => true).count.to_f / p.tasks.count) %>
+												<% decimal = math * 100 %>
+												<% percent = number_with_precision(decimal, precision: 0)  %>
+												<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= percent %>%">
+													<%= percent %>%
+												</div>
+												<% end %>
 											</div>
-											<% end %>
 										</td>
-						 			</tr>
-						 			<% end %>
-						  		</tbody>
+									</tr>
+									<% end %>
+								</tbody>
 							</table>
-				        </div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
 	</div>
+	<script type="text/javascript">
+	$("tr[data-link]").click(function() {
+        window.location = $(this).data('link');
+    });
+	</script>
 </div>

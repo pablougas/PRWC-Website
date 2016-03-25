@@ -1,31 +1,47 @@
-<div id="editform">
-<%= bootstrap_form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
+<div id="editform" class="col-md-12">
+   <%= bootstrap_form_for(@event) do |f| %>
+   <% if @event.errors.any? %>
+   <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+         <% @event.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+         <% end %>
       </ul>
-    </div>
-  <% end %>
+   </div>
+   <% end %>
 
-  <div class="field">
-    <%= f.text_field :title, hide_label: true, placeholder:'Title' %>
-  </div>
-  <div class="field">
-    <%= f.datetime_select :date, placeholder:'Date' %>
-  </div>
-  <div class="field">
-    <%= f.text_area :description, hide_label: true, placeholder:'Event Description' %>
-  </div>
-  <div class="field">
-    <%= f.text_field :link, hide_label: true, placeholder:'Google Cal Link' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+   <div class="col-md-6">
+      <%= f.text_field :title, hide_label: true, placeholder:'Title' %>
+   </div>
+   <div class='col-sm-6'>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker1'>
+            <%= f.datetime_field :date, hide_label: true, class: 'form-control', data: { date_format: 'YYYY/MM/DD hh:mm A/PM' } %>
+            <span class="input-group-addon">
+               <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="col-md-12">
+      <%= f.text_area :description, hide_label: true, placeholder:'Event Description' %>
+   </div>
+   <div class="col-md-12">
+      <%= f.text_field :link, hide_label: true, placeholder:'Google Cal Link' %>
+   </div>
+   <div class="col-md-12">
+      <div class="actions">
+         <%= f.submit %>
+      </div>
+   </div>
+   <% end %>
 </div>
+<script type="text/javascript">
+$(function () {
+   $('#datetimepicker1').datetimepicker({
+   });
+});
+</script>
+
