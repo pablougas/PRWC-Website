@@ -1,26 +1,26 @@
 development:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: prwc_development
   pool: 5
-  username: 
-  password:
+  username: padmin
+  password:	
 
 test: &TEST
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: prwc_test
   pool: 5
-  username: 
-  password:
+  username: padmin
+  password:	
 
 production:
   adapter: postgresql
-  encoding: utf8
+  encoding: unicode
   database: prwc_production
   pool: 5
-  username: 
-  password:
+  username: padmin
+  password:	
 
 cucumber:
   <<: *TEST
