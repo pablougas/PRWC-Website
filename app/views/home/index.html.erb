@@ -118,7 +118,7 @@
 	</div>
 	<div class="col-md-12">
 		<div class="col-md-10 col-md-offset-1">
-			<% if @blogs? %>
+			<% if @blogs.any? %>
 			<% @blogs.each do |b| %>
 				<% if b.id.even? %>
 				<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
@@ -157,8 +157,6 @@
 					</a>
 				</div>
 				<% end %>
-			<% end %>
-			<% else %>
 			<% end %>
 		</div>
 	</div>
