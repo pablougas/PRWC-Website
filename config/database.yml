@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: prwc_development
   pool: 5
-  username: 
+  username: padmin
   password:	
 
 test: &TEST
@@ -11,7 +11,7 @@ test: &TEST
   encoding: unicode
   database: prwc_test
   pool: 5
-  username: 
+  username: padmin
   password:	
 
 production:
@@ -19,7 +19,7 @@ production:
   encoding: unicode
   database: prwc_production
   pool: 5
-  username: 
+  username: padmin
   password:	
 
 cucumber:
