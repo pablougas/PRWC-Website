@@ -3,6 +3,7 @@ development:
   encoding: unicode
   database: prwc_development
   pool: 5
+  host: localhost
   username: padmin
   password:	
 
@@ -11,6 +12,7 @@ test: &TEST
   encoding: unicode
   database: prwc_test
   pool: 5
+  host: localhost
   username: padmin
   password:	
 
@@ -19,6 +21,7 @@ production:
   encoding: unicode
   database: prwc_production
   pool: 5
+  host: localhost
   username: padmin
   password:	
 
