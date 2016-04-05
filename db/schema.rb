@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160323194828) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assignees", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "task_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "assignees", ["task_id"], name: "index_assignees_on_task_id"
-  add_index "assignees", ["user_id"], name: "index_assignees_on_user_id"
+  add_index "assignees", ["task_id"], name: "index_assignees_on_task_id", using: :btree
+  add_index "assignees", ["user_id"], name: "index_assignees_on_user_id", using: :btree
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id"
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.integer  "user_id"
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "notes", force: :cascade do |t|
     t.integer  "task_id"
@@ -62,8 +65,8 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "notes", ["task_id"], name: "index_notes_on_task_id"
-  add_index "notes", ["user_id"], name: "index_notes_on_user_id"
+  add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
+  add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
@@ -76,7 +79,7 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.string   "priority"
   end
 
-  add_index "projects", ["user_id"], name: "index_projects_on_user_id"
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.integer  "user_id"
@@ -89,8 +92,8 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.integer  "project_id"
   end
 
-  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
-  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -109,7 +112,16 @@ ActiveRecord::Schema.define(version: 20160323194828) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "assignees", "tasks"
+  add_foreign_key "assignees", "users"
+  add_foreign_key "blogs", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "notes", "tasks"
+  add_foreign_key "notes", "users"
+  add_foreign_key "projects", "users"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users"
 end
