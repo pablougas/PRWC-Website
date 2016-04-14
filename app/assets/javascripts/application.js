@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require moment
@@ -18,5 +19,5 @@
 //= require fancybox
 //= require tether
 //= require cocoon
-//= require turbolinks
 //= require_tree .
+//= require turbolinks

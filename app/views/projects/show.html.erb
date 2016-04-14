@@ -27,10 +27,10 @@
                      <table class="table">
                         <thead>
                            <tr>
-                              <th>Project Description</th>
-                              <th>Status</th>
-                              <th>Task Deadline</th>
-                              <th colspan="3"></th>
+                              <th clas="col-md-6">Project Description</th>
+                              <th clas="col-md-2">Status</th>
+                              <th class="col-md-2">Task Deadline</th>
+                              <th class="col-md-2"></th>
                            </tr>
                         </thead>
 
@@ -42,22 +42,22 @@
                               <% else %>
                               class="success"
                               <% end %>>
-                              <td><% if @project.description? %>
+                              <td class="col-md-6"><% if @project.description? %>
                                  <%= @project.description %>
                                  <% else %>
                                  Description unavailable
                                  <% end %>
                               </td>
-                              <td>
+                              <td class="col-md-2">
                                  <% if @project.complete? %>
                                  Completed
                                  <% else %>
                                  Incomplete
                                  <% end %>
                               </td>
-                              <td><%= @project.deadline.strftime("%b. %d, %Y") %></td>
-                              <td><%= link_to 'Edit', edit_project_path(@project) %></td>
-                              <td><%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              <td class="col-md-2"><%= @project.deadline.strftime("%b. %d, %Y") %></td>
+                              <td class="col-md-2"><%= link_to 'Edit', edit_project_path(@project) %>
+                              <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                            </tr>
                         </tbody>
                      </table>
@@ -73,11 +73,11 @@
                      <table class="table table-hover">
                         <thead>
                            <tr>
-                              <th>Task</th>
-                              <th>Details</th>
-                              <th>Status</th>
-                              <th>Deadline</th>
-                              <th colspan="2"></th>
+                              <th class="col-md-2">Task</th>
+                              <th class="col-md-6">Details</th>
+                              <th class="col-md-1">Status</th>
+                              <th class="col-md-1">Deadline</th>
+                              <th class="col-md-2"></th>
                            </tr>
                         </thead>
 
@@ -85,32 +85,34 @@
                            <% if @project.tasks.exists? %>
                               <% @project.tasks.each do |t| %>
                               <tr> 
-                                 <td>
+                                 <td class="col-md-2">
                                     <%= link_to task_path(t) do %>
                                     <%= t.title %>
                                     <% end %>
                                  </td>
-                                 <td><%= t.content %></td>
-                                 <td>
+                                 <td class="col-md-6"><%= truncate(t.content, :length => 160) %></td>
+                                 <td class="col-md-1">
                                     <% if t.completed? %>
                                     Completed
                                     <% else %>
                                     Incomplete
                                     <% end %>
                                  </td>
-                                 <td><%= t.deadline %></td>
-                                 <td>
-                                    <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Task"} do %>
-                                       <i class="fa fa-wrench"></i>
-                                    <% end %>
-                                    &nbsp | &nbsp
-                                    <%= link_to task_path(t), data: {toggle: "tooltip", title: "View Task"} do %>
-                                       <i class="fa fa-eye"></i>
-                                    <% end %>
-                                    &nbsp | &nbsp
-                                    <%= link_to new_task_note_path(t), data: {toggle: "tooltip", title: "Add Note"} do %>
-                                       <i class="fa fa-pencil"></i>
-                                    <% end %>
+                                 <td class="col-md-1"><%= t.deadline %></td>
+                                 <td class="col-md-2">
+                                    <span class="pull-right">
+                                       <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Task"} do %>
+                                          <i class="fa fa-wrench"></i>
+                                       <% end %>
+                                       &nbsp | &nbsp
+                                       <%= link_to task_path(t), data: {toggle: "tooltip", title: "View Task"} do %>
+                                          <i class="fa fa-eye"></i>
+                                       <% end %>
+                                       &nbsp | &nbsp
+                                       <%= link_to new_task_note_path(t), data: {toggle: "tooltip", title: "Add Note"} do %>
+                                          <i class="fa fa-pencil"></i>
+                                       <% end %>
+                                    </span>
                                  </td>
                               </tr>
                               <% end %>
