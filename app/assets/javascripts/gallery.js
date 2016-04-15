@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var temp = "<div class='brick item' style='width:{width}px;'><img src='../assets/carousel/{index}.jpg' width='100%' class='fancybox'></div>";
+	var temp = "<div class='brick item gallery' style='width:{width}px;'><img src='../assets/carousel/{index}.jpg' width='100%' class='clearfix fancybox'></div>";
 	var w = 1, h = 1, html = '', limitItem = 30;
 	for (var i = 0; i < limitItem; ++i) {
 		w = 1 + 3 * Math.random() << 0;
@@ -29,4 +29,4 @@ $(document).ready(function() {
 	});
 	
   	$(".fancybox").fancybox();
-});
+});	

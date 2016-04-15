@@ -19,5 +19,8 @@
 //= require fancybox
 //= require tether
 //= require cocoon
+//= require freewall
+//= require gallery
+//= require datatoggle
 //= require_tree .
 //= require turbolinks

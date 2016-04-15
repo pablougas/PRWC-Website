@@ -23,7 +23,7 @@
 				<h2><%= e.title %></h2>
 				<h4><%= e.date.strftime("%b. %d, %Y - %l:%M %p") %></h4>
 				<div>
-					<p class="border description"><%= e.description %></p>
+					<p class="border description"><%= simple_format(e.description, class:"text") %></p>
 				</div>
 			</div>
 			<% end %>

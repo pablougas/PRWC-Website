@@ -29,7 +29,7 @@
 								</thead>
 								<tbody>
 									<% @events.each do |e| %>
-									<tr data-link="<%= edit_event_path(e) %>">
+									<tr data-link="<%= edit_event_path(e) %>" class="button">
 										<td>
 											<%= e.title %>
 										</td>
@@ -61,7 +61,7 @@
 								</thead>
 								<tbody>
 									<% @posts.each do |b| %>
-									<tr data-link="<%= post_path(b) %>">
+									<tr data-link="<%= post_path(b) %>" class="button">
 										<td><%= b.title %></td>
 										<td><%= truncate(b.description, :length => 30) %></td>
 										<td><%= b.created_at.strftime("%b. %d, %Y") %></td>
@@ -94,7 +94,7 @@
 								</thead>
 								<tbody>
 									<% @projects.each do |p| %>
-									<tr data-link="<%= project_path(p) %>" target='blank'>
+									<tr data-link="<%= project_path(p) %>" class="button">
 										<td><%= p.priority %></td>
 										<td><%= p.title %></a></td>
 										<td><%= p.user.first_name %> <%= p.user.last_name %></td>

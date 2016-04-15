@@ -17,7 +17,7 @@
                 </div>
                <div class="panel-body">
                   <div class="table-responsive">
-                     <table class="table table-hover">
+                     <table class="table">
                     <thead>
                       <tr>
                         <th>Project</th>
@@ -33,7 +33,7 @@
                       <% @tasks.each do |task| %>
                         <tr>
                           <td><%= task.task.title %></td>
-                          <td><%= task.task.content %></td>
+                          <td><%= truncate(task.task.content, :length => 90) %></td>
                           <td><%= task.task.deadline %></td>
                           <% if task.task.completed %>
                             <td>Completed</td>
