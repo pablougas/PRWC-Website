@@ -17,13 +17,13 @@
 			<% @events.each do |e| %> 
 			<div class="col-sm-12 col-md-8 col-md-offset-2 event">
 				<% if e.link? %>
-				<h2><a href="<%= e.link %>" class="ebutton pull-right" target="blank"><i class="fa fa-plus"></i> Google Cal</a></h2>
+					<h2><a href="<%= e.link %>" class="ebutton pull-right" target="blank"><i class="fa fa-plus"></i> Google Cal</a></h2>
 				<% else %>
 				<% end %>
 				<h2><%= e.title %></h2>
-				<h4><%= e.date.strftime("%b. %d, %Y - %l:%M %p") %></h4>
-				<div>
-					<p class="border description"><%= simple_format(e.description, class:"text") %></p>
+				<h4><%= e.date.strftime("%b. %d, %Y @ %l:%M %p") %></h4>
+				<div class="border description">
+					<p class="white"><%= simple_format(e.description) %></p>
 				</div>
 			</div>
 			<% end %>
