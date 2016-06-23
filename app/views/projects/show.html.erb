@@ -1,134 +1,115 @@
-<div class="row nopadding">
-   <div class="col-md-10 col-md-offset-1 wrapper">
-      <div class="col-md-3">
-         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><%= link_to "Home", welcome_index_path %>
-               <div style="padding-left:30px;">
-               <ul class="nav nav-pills nav-stacked">
-                  <li role="presentation" class="active"><%= link_to "Project Details", url_for(params) %></li>
-               </ul>
-               </div>
-            </li>
-            <li role="presentation"><%= link_to "Events", events_path %></li>
-            <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
-            <li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
-            <li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
-         </ul>
-         <hr>
-      </div>
-      <div class="col-md-9">
-         <div class="col-md-12">
-            <div class="panel panel-primary">
-               <div class="panel-heading clearfix">
-                  <h4 class="pull-left">Project: <%= @project.title %></h4> 
-               </div>
-               <div class="panel-body">
-                  <div class="table-responsive">
-                     <table class="table">
-                        <thead>
-                           <tr>
-                              <th class="col-md-7">Project Description</th>
-                              <th class="col-md-2">Status</th>
-                              <th class="col-md-2">Task Deadline</th>
-                              <th class="col-md-1"></th>
-                           </tr>
-                        </thead>
+<div class="col-md-9">
+   <div class="col-md-12">
+      <div class="panel panel-primary">
+         <div class="panel-heading clearfix">
+            <h4 class="pull-left">Project: <%= @project.title %></h4>
+         </div>
+         <div class="panel-body">
+            <div class="table-responsive">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th class="col-md-7">Project Description</th>
+                        <th class="col-md-2">Status</th>
+                        <th class="col-md-2">Task Deadline</th>
+                        <th class="col-md-1"></th>
+                     </tr>
+                  </thead>
 
-                        <tbody>
-                           <tr <% if @project.deadline.past? %>
-                              class="danger"
-                              <% elsif range? %>
-                              class="warning"
-                              <% else %>
-                              class="success"
-                              <% end %>>
-                              <td class="col-md-7"><% if @project.description? %>
-                                 <%= @project.description %>
-                                 <% else %>
-                                 Description unavailable
-                                 <% end %>
-                              </td>
-                              <td class="col-md-2">
-                                 <% if @project.complete? %>
-                                 Completed
-                                 <% else %>
-                                 Incomplete
-                                 <% end %>
-                              </td>
-                              <td class="col-md-2"><%= @project.deadline.strftime("%b. %d, %Y") %></td>
-                              <td class="col-md-1">
-                                 <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Project"} do %>
-                                    <i class="fa fa-wrench"></i>
-                                 <% end %>
-                                 &nbsp | &nbsp
-                                 <%= link_to @project, method: :delete, data: { toggle: "tooltip", title: "Delete Project", confirm: 'Are you sure?' } do %>
-                                    <i class="fa fa-remove"></i>
-                                 <% end %>
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
-            </div>
-            <div class="panel panel-primary">
-               <div class="panel-heading clearfix">
-                  <h4 class="pull-left">Task List</h4> 
-               </div>
-               <div class="panel-body">
-                  <div class="table-responsive">
-                     <table class="table-responsive">
-                        <thead>
-                           <tr>
-                              <th class="col-md-2">Task</th>
-                              <th class="col-md-6">Details</th>
-                              <th class="col-md-1">Status</th>
-                              <th class="col-md-1">Deadline</th>
-                              <th class="col-md-2"></th>
-                           </tr>
-                        </thead>
-
-                        <tbody>
-                           <% if @project.tasks.exists? %>
-                              <% @project.tasks.each do |t| %>
-                              <tr> 
-                                 <td class="col-md-2">
-                                    <%= t.title %>
-                                 </td>
-                                 <td class="col-md-6"><%= truncate(t.content, :length => 160) %></td>
-                                 <td class="col-md-1">
-                                    <% if t.completed? %>
-                                    Completed
-                                    <% else %>
-                                    Incomplete
-                                    <% end %>
-                                 </td>
-                                 <td class="col-md-1"><%= t.deadline %></td>
-                                 <td class="col-md-2">
-                                    <span class="pull-right">
-                                       <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Task"} do %>
-                                          <i class="fa fa-wrench"></i>
-                                       <% end %>
-                                       &nbsp | &nbsp
-                                       <%= link_to task_path(t), data: {toggle: "tooltip", title: "View Task"} do %>
-                                          <i class="fa fa-eye"></i>
-                                       <% end %>
-                                       &nbsp | &nbsp
-                                       <%= link_to new_task_note_path(t), data: {toggle: "tooltip", title: "Add Note"} do %>
-                                          <i class="fa fa-pencil"></i>
-                                       <% end %>
-                                    </span>
-                                 </td>
-                              </tr>
-                              <% end %>
+                  <tbody>
+                     <tr <% if @project.deadline.past? %>
+                        class="danger"
+                        <% elsif range? %>
+                        class="warning"
+                        <% else %>
+                        class="success"
+                        <% end %>>
+                        <td class="col-md-7"><% if @project.description? %>
+                           <%= @project.description %>
                            <% else %>
-                           <tr> 
-                              <td> No tasks currently exist. <%= link_to 'Add A Task', edit_project_path(@project) %></td> 
+                           Description unavailable
                            <% end %>
-                        </tbody>
-                     </table>
-                  </div>
-               </div>
+                        </td>
+                        <td class="col-md-2">
+                           <% if @project.complete? %>
+                           Completed
+                           <% else %>
+                           Incomplete
+                           <% end %>
+                        </td>
+                        <td class="col-md-2"><%= @project.deadline.strftime("%b. %d, %Y") %></td>
+                        <td class="col-md-1">
+                           <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Project"} do %>
+                           <i class="fa fa-wrench"></i>
+                           <% end %>
+                           &nbsp | &nbsp
+                           <%= link_to @project, method: :delete, data: { toggle: "tooltip", title: "Delete Project", confirm: 'Are you sure?' } do %>
+                           <i class="fa fa-remove"></i>
+                           <% end %>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+         </div>
+      </div>
+      <div class="panel panel-primary">
+         <div class="panel-heading clearfix">
+            <h4 class="pull-left">Task List</h4>
+         </div>
+         <div class="panel-body">
+            <div class="table-responsive">
+               <table class="table-responsive">
+                  <thead>
+                     <tr>
+                        <th class="col-md-2">Task</th>
+                        <th class="col-md-6">Details</th>
+                        <th class="col-md-1">Status</th>
+                        <th class="col-md-1">Deadline</th>
+                        <th class="col-md-2"></th>
+                     </tr>
+                  </thead>
+
+                  <tbody>
+                     <% if @project.tasks.exists? %>
+                     <% @project.tasks.each do |t| %>
+                     <tr>
+                        <td class="col-md-2">
+                           <%= t.title %>
+                        </td>
+                        <td class="col-md-6"><%= truncate(t.content, :length => 160) %></td>
+                        <td class="col-md-1">
+                           <% if t.completed? %>
+                           Completed
+                           <% else %>
+                           Incomplete
+                           <% end %>
+                        </td>
+                        <td class="col-md-1"><%= t.deadline %></td>
+                        <td class="col-md-2">
+                           <span class="pull-right">
+                              <%= link_to edit_project_path(@project), data: {toggle: "tooltip", title: "Edit Task"} do %>
+                              <i class="fa fa-wrench"></i>
+                              <% end %>
+                              &nbsp | &nbsp
+                              <%= link_to task_path(t), data: {toggle: "tooltip", title: "View Task"} do %>
+                              <i class="fa fa-eye"></i>
+                              <% end %>
+                              &nbsp | &nbsp
+                              <%= link_to new_task_note_path(t), data: {toggle: "tooltip", title: "Add Note"} do %>
+                              <i class="fa fa-pencil"></i>
+                              <% end %>
+                           </span>
+                        </td>
+                     </tr>
+                     <% end %>
+                     <% else %>
+                     <tr>
+                        <td> No tasks currently exist. <%= link_to 'Add A Task', edit_project_path(@project) %></td>
+                        <% end %>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
          </div>
       </div>

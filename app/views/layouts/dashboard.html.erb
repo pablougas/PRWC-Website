@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Puyallup River Watershed Council</title>
+		<%= favicon_link_tag 'favicon.ico' %>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+
+		<%= stylesheet_link_tag "bootstrap-glyphicons.css" %>
+		<%= stylesheet_link_tag 'application', "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" %>
+	</head>
+	<body>
+		<header class="container">
+			<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top nopadding navbar-top">
+				<div class="row nopadding">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+	        			<%= image_tag('logo2.png', class:'img-responsive logo hidden-md hidden-lg pull-left') %>
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-left clearfix" id="main-nav">
+	        			<%= image_tag('logo2.png', class:'img-responsive logo hidden-sm hidden-xs') %>
+						<ul class="nav navbar-nav nav-top">
+							<li id="menu-margin"class="<%= 'active' if current_page?(home_index_path) %>"><%= link_to "Home", home_index_path %></li>
+							<li class="<%= 'active' if current_page?(home_about_path) %>"><%= link_to "About", home_about_path %></li>
+							<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>
+							<li class="<%= 'active' if current_page?(home_blog_path) %>"><%= link_to "Blog", home_blog_path %></li>
+							<li class="<%= 'active' if current_page?(home_gallery_path) %>"><%= link_to "Gallery", home_gallery_path %></li>
+							<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Memberships", home_memberships_path %></li>
+							<li id="contactScroll" class="<%= 'active' if current_page?(home_index_path(:anchor => "contact")) %>"><%= link_to("Contact", home_index_path(:anchor => "contact")) %></li>
+							<li class="hidden-sm hidden-md hidden-lg"><%= link_to "Sign In", user_session_path %></li>
+						</ul>
+					</div>
+					<div class="hidden-xs collapse navbar-collapse navbar-right">
+						<ul class="nav navbar-nav" id="removeOnCollapse">
+							<% if user_signed_in? %>
+							<li>
+								<%= link_to root_path do %>
+								<i class="fa fa-dashboard"></i>
+								<% end %>
+							</li>
+							<li>
+								<%= link_to destroy_user_session_path, method: 'delete' do %>
+								<i class="fa fa-power-off"></i>
+								<% end %>
+							</li>
+							<% else %>
+							<li><% link_to "Sign Up", new_user_registration_path %></li>
+							<li>
+								<%= link_to user_session_path do %>
+								<i class="fa fa-sign-in"></i>
+								<% end %>
+							</li>
+							<% end %>
+						</ul>
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
+		</header>
+			<% if notice %>
+			<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+			<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+
+			<!-- Display menu for dashboard -->
+			<div class="row nopadding">
+				<div class="col-md-10 col-md-offset-1 wrapper">
+					<div class="col-md-3">
+						<ul class="nav nav-pills nav-stacked">
+							<li role="presentation" class="<%= 'active' if current_page?(welcome_index_path) %>"><%= link_to "Home", welcome_index_path %></li>
+							<li role="presentation" class="<%= 'active' if current_page?(events_path) %>"><%= link_to "Events", events_path %></li>
+							<li role="presentation" class="<%= 'active' if current_page?(blogs_path) %>"><%= link_to "Blog Posts", blogs_path %></li>
+							<li role="presentation" class="<%= 'active' if current_page?(tasks_path) %>"><%= link_to "My Tasks", tasks_path %></li>
+							<li role="presentation" class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+						</ul>
+						<hr>
+					</div>
+
+					<%= yield %>
+				</div>
+		<footer>
+			<nav id="top" class="navbar navbar-inverse navbar-fixed-bottom">
+				<nav class="navbar navbar-inverse navbar-fixed-bottom">
+					<div class="container-fluid">
+					</div>
+				</nav>
+			</nav>
+			<nav class="navbar navbar-inverse navbar-fixed-bottom">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav navbar-right inline">
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-facebook-f"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-linkedin"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-instagram"></i></a></li>
+						<li class="col-xs-3"><a href="#" class="inline"><i class="fa fa-youtube"></i></a></li>
+					</ul>
+				</div>
+			</nav>
+		</footer>
+	</body>
+</html>

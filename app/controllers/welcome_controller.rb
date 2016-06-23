@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  layout 'dashboard'
+
   before_action :authenticate_user!
   def index
   	@projects = Project.joins(:user).where("user_id = users.id")

@@ -1,66 +1,52 @@
-<div class="row">
-   <div class="col-md-10 col-md-offset-1 wrapper">
-      <div class="col-md-3">
-         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
-            <li role="presentation" class="active"><%= link_to "Events", events_path %></li>
-            <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
-            <li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
-            <li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
-         </ul>
-         <hr>
+<div class="col-md-9">
+   <div class="panel panel-primary">
+      <div class="panel-heading clearfix">
+         <h4 class="pull-left">Events</h4>
+         <%= link_to new_event_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Event<% end %>
       </div>
-      <div class="col-md-9">
-         <div class="panel panel-primary">
-            <div class="panel-heading clearfix">
-               <h4 class="pull-left">Events</h4> 
-               <%= link_to new_event_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Event<% end %>
-            </div>
-            <div class="panel-body">
-               <div class="table-responsive">
-                  <table class="table">
-                     <thead>
-                        <tr>
-                           <th class="col-md-2">Title</th>
-                           <th class="col-md-5">Description</th>
-                           <th class="col-md-2">Event Date</th>
-                           <th class="col-md-2">Google Cal Link</th>
-                           <th class="col-md-1"></th>
-                        </tr>
-                     </thead>
+      <div class="panel-body">
+         <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th class="col-md-2">Title</th>
+                     <th class="col-md-5">Description</th>
+                     <th class="col-md-2">Event Date</th>
+                     <th class="col-md-2">Google Cal Link</th>
+                     <th class="col-md-1"></th>
+                  </tr>
+               </thead>
 
-                     <tbody>
-                        <% @events.each do |event| %>
-                        <tr>
-                           <td class="col-md-2">
-                              <%= link_to edit_event_path(event) do %>
-                                 <%= event.title %>
-                              <% end %>
-                           </td>
-                           <td class="col-md-5"><%= event.description %></td>
-                           <td class="col-md-2"><%= event.date.strftime("%b. %d, %Y @ %l:%M %p") %></td>
-                           <% if event.link? %>
-                              <td class="col-md-2">Available</td>
-                              <% else %>
-                              <td class="col-md-2">Not Available</td>
-                           <% end %> 
-                           <td class="col-md-1">
-                              <span class="pull-right">
-                                 <%= link_to edit_event_path(event), data: {toggle: "tooltip", title: "Edit Event"} do %>
-                                    <i class="fa fa-wrench"></i>
-                                 <% end %>
-                                 &nbsp | &nbsp
-                                 <%= link_to event, method: :delete, data: { toggle: "tooltip", title: "Edit Event", confirm: 'Are you sure?' } do %>
-                                    <i class="fa fa-remove"></i>
-                                 <% end %>
-                              </span>
-                           </td>
-                        </tr>
+               <tbody>
+                  <% @events.each do |event| %>
+                  <tr>
+                     <td class="col-md-2">
+                        <%= link_to edit_event_path(event) do %>
+                        <%= event.title %>
                         <% end %>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
+                     </td>
+                     <td class="col-md-5"><%= event.description %></td>
+                     <td class="col-md-2"><%= event.date.strftime("%b. %d, %Y @ %l:%M %p") %></td>
+                     <% if event.link? %>
+                     <td class="col-md-2">Available</td>
+                     <% else %>
+                     <td class="col-md-2">Not Available</td>
+                     <% end %>
+                     <td class="col-md-1">
+                        <span class="pull-right">
+                           <%= link_to edit_event_path(event), data: {toggle: "tooltip", title: "Edit Event"} do %>
+                           <i class="fa fa-wrench"></i>
+                           <% end %>
+                           &nbsp | &nbsp
+                           <%= link_to event, method: :delete, data: { toggle: "tooltip", title: "Edit Event", confirm: 'Are you sure?' } do %>
+                           <i class="fa fa-remove"></i>
+                           <% end %>
+                        </span>
+                     </td>
+                  </tr>
+                  <% end %>
+               </tbody>
+            </table>
          </div>
       </div>
    </div>

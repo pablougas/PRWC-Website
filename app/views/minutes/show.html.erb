@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @minute.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @minute.location %>
+</p>
+
+<p>
+  <strong>Street:</strong>
+  <%= @minute.street %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @minute.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @minute.state %>
+</p>
+
+<p>
+  <strong>Zip:</strong>
+  <%= @minute.zip %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @minute.date %>
+</p>
+
+<%= link_to 'Edit', edit_minute_path(@minute) %> |
+<%= link_to 'Back', minutes_path %>
