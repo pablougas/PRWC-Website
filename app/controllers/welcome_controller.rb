@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  before_action :authenticate_user!
   def index
   	@projects = Project.joins(:user).where("user_id = users.id")
   	@events = Event.where("date >= ?", Date.today).order("date ASC").limit(3)
