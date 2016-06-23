@@ -1,67 +1,54 @@
-<div class="row nopadding">
-  <div class="col-md-10 col-md-offset-1 wrapper">
-      <div class="col-md-3">
-         <ul class="nav nav-pills nav-stacked">
-            <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
-            <li role="presentation"><%= link_to "Events", events_path %></li>
-            <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
-            <li role="presentation" class="active"><%= link_to "My Tasks", tasks_path %></li>
-            <li role="presentation"><%= link_to "Edit Profile", edit_user_registration_path %></li>
-         </ul>
-         <hr>
-      </div>
-      <div class="col-md-9">
-            <div class="panel panel-primary">
-               <div class="panel-heading clearfix">
-                  <h4 class="pull-left">My Tasks</h4>
-                </div>
-               <div class="panel-body">
-                  <div class="table-responsive">
-                     <table class="table">
-                    <thead>
-                      <tr>
-                        <th>Project</th>
-                        <th>Task</th>
-                        <th>Complete?</th>
-                        <th>Deadline</th>
-                        <th>Actions</th>
-                        <th></th>
-                      </tr>
-                    </thead>
+<div class="col-md-9">
+  <div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+      <h4 class="pull-left">My Tasks</h4>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Task</th>
+              <th>Complete?</th>
+              <th>Deadline</th>
+              <th>Actions</th>
+              <th></th>
+            </tr>
+          </thead>
 
-                    <tbody>
-                      <% @tasks.each do |task| %>
-                        <tr>
-                          <td><%= truncate(task.task.title, :length => 12) %></td>
-                          <td><%= truncate(task.task.content, :length => 90) %></td>
-                          <% if task.task.completed %>
-                            <td>Completed</td>
-                            <% else %>
-                            <td>Incomplete</td>
-                          <% end %>
-                          <td><%= task.task.deadline.strftime("%b. %d, %Y") %></td>
-                          <td>
-                            <%= link_to task.task, data: {toggle: "tooltip", title: "Edit Task"} do %>
-                              <i class="fa fa-wrench"></i>
-                            <% end %>
-                            &nbsp;|&nbsp;
-                            <%= link_to new_task_note_path(task.task), data: {toggle: "tooltip", title: "Add Note"} do %>
-                              <i class="fa fa-pencil"></i>
-                            <% end %>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
-                </div>
-            </div>
-         </div>
+          <tbody>
+            <% @tasks.each do |task| %>
+            <tr>
+              <td><%= truncate(task.task.title, :length => 12) %></td>
+              <td><%= truncate(task.task.content, :length => 90) %></td>
+              <% if task.task.completed %>
+              <td>Completed</td>
+              <% else %>
+              <td>Incomplete</td>
+              <% end %>
+              <td><%= task.task.deadline.strftime("%b. %d, %Y") %></td>
+              <td>
+                <%= link_to task.task, data: {toggle: "tooltip", title: "Edit Task"} do %>
+                <i class="fa fa-wrench"></i>
+                <% end %>
+                &nbsp;|&nbsp;
+                <%= link_to new_task_note_path(task.task), data: {toggle: "tooltip", title: "Add Note"} do %>
+                <i class="fa fa-pencil"></i>
+                <% end %>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
-   </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip({
-   placement : 'top'
-});
-});
-</script>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+      placement : 'top'
+    });
+  });
+  </script>
