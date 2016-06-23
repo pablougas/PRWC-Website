@@ -1,10 +1,11 @@
 class HomeController < ApplicationController
-  before_action :set_blog, only: :post   
+  before_action :set_blog, only: :post
   include HomeHelper
 
   def index
     @contact = Contact.new(params[:contact_form])
     @blogs = Blog.all.order("created_at DESC").limit(3)
+    @event = Event.where('date >= ?', Date.today)
   end
 
   def about
