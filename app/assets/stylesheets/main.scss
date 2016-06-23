@@ -6,14 +6,17 @@
 	#menu-margin {
 		margin-left: 150px;
 	}
+	.navbar-nav {
+		margin-left: 120px;
+	}
 }
 html {
     height: 100%;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
   	Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-body { 
-	padding-bottom: 60px; 
+body {
+	padding-bottom: 60px;
 }
 .logo {
 	position: absolute;
@@ -37,14 +40,27 @@ body {
 .inline {
 	display: inline-block;
 }
+header{
+	position: relative;
+}
+.head {
+	border-bottom: 1px solid #555
+}
 .navbar {
 	padding: 0 !important;
 	margin: 0 !important;
 	border: 0;
 }
+.navbar-top {
+	background-color: white;
+	height: 125px;
+}
+.nav-top {
+	position: absolute;
+	bottom: 0;
+}
 .navbar-nav > li > a {
-	width: 100%;
-	margin: 0 !important;
+	margin: 0px !important;
 	font-weight: 700;
     text-align: center;
     > li {
@@ -57,6 +73,9 @@ body {
 }
 .navbar-nav > .active > a {
 	background-color: #7aa13f !important;
+}
+.navbar-toggle {
+	background-color: grey !important;
 }
 .logo {
 	max-height: 125px;
@@ -94,10 +113,10 @@ body {
   	margin-top: -2px;
 }
 .button {
-	cursor: pointer; 
+	cursor: pointer;
 	cursor: hand;
 }
-.back-to-top { 
+.back-to-top {
 	background: none;
 	margin: 0 !important;
 	position: fixed;
@@ -119,5 +138,3 @@ body {
 .wrapper {
 	margin-top: 40px;
 }
-
-

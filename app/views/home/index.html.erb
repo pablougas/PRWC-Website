@@ -137,22 +137,19 @@
 	</div>
 	<!-- Membership Options -->
 	<div class="col-md-12 membership bigmgn">
-		<h1 class="text-center thicker white-font">SUPPORT</h1>
+		<h1 class="text-center thicker white-font" style="margin-top:-10px;">SUPPORT</h1>
 		<h5 class=" text-center text-muted white-font">Help to keep our waters clean and flowing</h5>
-		<div class="col-md-8 col-md-offset-2">
-			<div class="hidden-xs hidden-sm col-md-3 plans">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="hidden-xs hidden-sm col-md-4 plans">
 				<%= image_tag("bg/member1.png", class:"img-responsive") %>
 			</div>
-			<div class="hidden-xs hidden-sm col-md-3 plans">
+			<div class="hidden-xs hidden-sm col-md-4 plans">
 				<%= image_tag("bg/member2.png", class:"img-responsive") %>
 			</div>
-			<div class="hidden-xs hidden-sm col-md-3 plans">
+			<div class="hidden-xs hidden-sm col-md-4 plans">
 				<%= image_tag("bg/member3.png", class:"img-responsive") %>
 			</div>
-			<div class="hidden-xs hidden-sm col-md-3 plans">
-				<%= image_tag("bg/member3.png", class:"img-responsive") %>
-			</div>
-			<h3 class="text-center"><a href="#contact" id="plan_link">View All Subscriptions</a></h3>
+			<h3 class="text-center"><%= link_to home_memberships_path, id:"plan_link" do%> View All Memberships<% end %></h3>
 		</div>
 	</div>
 	<!-- Contact Us -->

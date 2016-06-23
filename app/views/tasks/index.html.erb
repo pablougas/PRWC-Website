@@ -39,7 +39,7 @@
                             <% else %>
                             <td>Incomplete</td>
                           <% end %>
-                          <td><%= task.task.deadline %></td>
+                          <td><%= task.task.deadline.strftime("%b. %d, %Y") %></td>
                           <td>
                             <%= link_to task.task, data: {toggle: "tooltip", title: "Edit Task"} do %>
                               <i class="fa fa-wrench"></i>

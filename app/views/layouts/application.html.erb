@@ -12,13 +12,13 @@
 		<%= stylesheet_link_tag 'application', "http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" %>
 	</head>
 	<body>
-		<header>
-			<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top nopadding">
-				<div class="container-fluid nopadding">
+		<header class="container">
+			<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top nopadding navbar-top">
+				<div class="row nopadding">
 
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
-	        			<%= image_tag('logo_small.png', class:'img-responsive logo hidden-md hidden-lg pull-left') %>
+	        			<%= image_tag('logo2.png', class:'img-responsive logo hidden-md hidden-lg pull-left') %>
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
@@ -28,9 +28,9 @@
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse navbar-left" id="main-nav">
-	        			<%= image_tag('logo_small.png', class:'img-responsive logo hidden-sm hidden-xs') %>
-						<ul class="nav navbar-nav">
+					<div class="collapse navbar-collapse navbar-left clearfix" id="main-nav">
+	        			<%= image_tag('logo2.png', class:'img-responsive logo hidden-sm hidden-xs') %>
+						<ul class="nav navbar-nav nav-top">
 							<li id="menu-margin"class="<%= 'active' if current_page?(home_index_path) %>"><%= link_to "Home", home_index_path %></li>
 							<li class="<%= 'active' if current_page?(home_about_path) %>"><%= link_to "About", home_about_path %></li>
 							<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>

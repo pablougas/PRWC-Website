@@ -74,7 +74,7 @@
     -o-background-size: cover;
     background-size: 100%;
     max-height: 750px;
-    min-height: 100%;
+    min-height: auto;
     padding-top: 35px;
     overflow: hidden;
 }
@@ -175,7 +175,7 @@
 
 /*Blog Post*/
 .post-banner {
-	background: url('bg/reflection-lake.png') no-repeat center center fixed; 
+	background: url('bg/reflection-lake.png') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -204,6 +204,6 @@
 .full-width {
 	width: 100%;
 }
-.gallery { 
+.gallery {
 	cursor: pointer;
 }
