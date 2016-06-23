@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
+
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Assignee.joins(:task).where("task_id = tasks.id")
+
+    @tasks = Assignee.where(:user_id => current_user.id)
   end
 
   # GET /tasks/1
