@@ -1,4 +1,4 @@
-Rails.application.routes.draw do  
+Rails.application.routes.draw do
 
   resources :minutes
   resources :tasks do
@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   get 'home/blog'
   get 'home/post/:id', to: 'home#post', as: 'post'
   get 'home/memberships'
-
-  match '/contacts', to: 'contacts#new', via: 'get'
-  resources "contacts", only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

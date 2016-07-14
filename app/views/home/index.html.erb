@@ -74,9 +74,13 @@
 
 	<!-- Events Stream -->
 	<div class="col-md-12 event">
-		<h2 class="col-md-4 thick"> Next Upcoming Event:</h2>
-		<h2 class="col-md-4 thick"><%= truncate(@event.first.title, :length => 25) || "No upcoming events" %> </h2>
-		<h2 class="col-md-4 thick"> <%= @event.first.date.strftime("%b. %d, %Y @ %l:%M %p") || "" %> <%= link_to "View All", home_events_path, class:"ebutton pull-right" %></h2>
+		<h2 class="col-md-3 thick"> Next Upcoming Event:</h2>
+		<h2 class="col-md-5 thick"><%= truncate(@event.try(:title), length: 20) %> </h2>
+		<h2 class="col-md-4 thick"> <%= @event.try(:date, :strftime,"%b. %d @ %l:%M %p" ) %>
+		<%= link_to "View All", home_events_path, class:"ebutton pull-right hidden-xs hidden-sm" %></h2>
+		<%= link_to home_events_path, class:"ebutton btn-block text-center hidden-md hidden-lg" do %>
+			View All
+		<% end %>
 	</div>
 
 	<!-- Blog -->

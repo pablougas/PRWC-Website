@@ -5,7 +5,7 @@ class HomeController < ApplicationController
   def index
     @contact = Contact.new(params[:contact_form])
     @blogs = Blog.all.order("created_at DESC").limit(3)
-    @event = Event.where('date >= ?', Date.today)
+    @event = Event.where('date >= ?', Date.today).order('date ASC').first
   end
 
   def about
