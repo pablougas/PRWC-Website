@@ -1,0 +1,14 @@
+<div class="nested-fields">
+<fieldset>
+    <div class="input-group margin-bottom-20 field">
+        <span class="input-group-addon"><i class="fa fa-picture-o"></i></span>
+        <%= f.text_field :name, hide_label:true, placeholder:"Photo Description (optional)" %>
+    </div>
+    <div class="field">
+      <%= f.file_field :avatar, hide_label: true %>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :user_id %>
+    </div>
+</fieldset>
+</div>

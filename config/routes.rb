@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-
+  resources :mailing_lists
+  resources :photographs
+  resources :albums
+  resources :contact_forms
   resources :minutes
   resources :tasks do
     resources :notes
@@ -14,6 +17,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'home/index'
   get 'home/about'
+  get 'home/album/:id', to: 'home#show_album', as: 'show_album'
   get 'home/events'
   get 'home/gallery'
   get 'home/blog'

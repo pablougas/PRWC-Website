@@ -200,10 +200,33 @@
 .brick img {
 	margin: 0;
 	display: block;
+	position: relative;
 }
 .full-width {
 	width: 100%;
 }
 .gallery {
 	cursor: pointer;
+}
+.cover {
+	position: relative;
+	display: inline-block;
+	height: 300px;
+	overflow-y: hidden;
+}
+.cover img {
+	border-radius: 5px;
+}
+.cover h3 {
+	box-shadow: 3px 3px 2px #0C090A;
+	position: absolute;
+	text-align: right;
+	padding: 8px;
+	top: 0px;
+	right: 8px;
+	line-height: 150%;
+	max-width: 70%;
+	background-color: rgba(0, 0, 0, 0.7);
+	font-weight: 400;
+	color: white;
 }

@@ -1,0 +1,36 @@
+<div class="col-md-9">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h4 class="pull-left">Albums</h4>
+            <%= link_to new_album_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Album<% end %>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <p id="notice"><%= notice %></p>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Created On</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <% @albums.each do |album| %>
+                        <tr>
+                            <td><%= truncate(album.title, length:20) %></td>
+                            <td><%= truncate(album.description, length:35) %></td>
+                            <td><%= album.created_at.strftime("%b. %d") %></td>
+                            <td><%= link_to 'Show', album %>  &nbsp|
+                                <%= link_to 'Edit', edit_album_path(album) %> &nbsp|
+                                <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

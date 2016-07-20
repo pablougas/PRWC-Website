@@ -1,0 +1,40 @@
+<%= bootstrap_form_for(@album) do |f| %>
+  <% if @album.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@album.errors.count, "error") %> prohibited this album from being saved:</h2>
+
+      <ul>
+      <% @album.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="input-group margin-bottom-20 field">
+      <span class="input-group-addon"><i class="fa fa-camera-retro"></i></span>
+      <%= f.text_field :title, hide_label:true, placeholder:"Album Name" %>
+  </div>
+  <div class="field">
+    <%= f.text_area :description, hide_label:true, placeholder:"Album Caption" %>
+  </div>
+  <div class="field">
+      <% if @album.avatar.exists? %>
+      <%= image_tag @album.avatar.url(:thumb) %><br/>
+      <% else %>
+      <%= f.file_field :avatar, label:"Album Cover Image" %>
+      <% end %>
+  </div>
+  <hr />
+  <fieldset id="photographs">
+      <%= f.fields_for :photographs do |p| %>
+      <%= render 'photograph_fields', :f => p %>
+      <% end %>
+  </fieldset>
+  <div class="links">
+    <%= link_to_add_association ' Add Photo', f, :photographs, class:"btn btn-primary btn-block margin-bottom-20" %>
+  </div>
+  <div class="actions margin-bottom-20 pull-right">
+    <%= f.submit %>
+  </div>
+<% end %>

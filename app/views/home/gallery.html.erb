@@ -1,6 +1,10 @@
 <div class="row nopadding">
 	<div class="col-md-12">
-		<div id="freewall" class="free-wall"></div>
+		<% @album.each do |album| %>
+		<div class="cover col-md-3">
+			<%= link_to show_album_path(album) do %><%= image_tag album.avatar.url(:medium), class:"img-responsive" %><% end %>
+			<h3 class="title"><%= album.title %></h3>
 		</div>
+		<% end %>
 	</div>
 </div>

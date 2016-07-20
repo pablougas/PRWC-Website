@@ -9,7 +9,9 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'bootstrap-sass'
+
+# Use bootstrap for some style
+gem "twitter-bootstrap-rails"
 
 # Tooltips and popovers require tether
 source 'https://rails-assets.org' do
@@ -66,7 +68,8 @@ gem 'devise'
 #lets make things prettier in console
 gem 'hirb'
 
-
+#lets access database stuff in JavaScript
+gem 'gon'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -88,4 +91,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

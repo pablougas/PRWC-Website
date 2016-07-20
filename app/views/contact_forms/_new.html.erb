@@ -1,0 +1,15 @@
+<div align="center-block">
+  <%= bootstrap_form_for(@contact_form) do |f| %>
+
+    <%= f.text_field :name, hide_label: true, placeholder: 'Full Name', icon: "user" %>
+    <%= f.email_field :email, hide_label: true, placeholder: 'Your Email Address', icon: "envelope" %>
+    <%= f.text_area :message, hide_label: true, placeholder: 'Type Your Message...' %>
+    <div class= "hidden">
+      <%= f.hidden_field :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+    <div>
+      </br>
+      <%= f.submit 'Send Message', class:"btn btn-info btn-block" %>
+    </div>
+  <% end %>
+</div>

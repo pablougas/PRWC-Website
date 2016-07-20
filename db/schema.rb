@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714230949) do
+ActiveRecord::Schema.define(version: 20160715200923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
 
   create_table "assignees", force: :cascade do |t|
     t.integer  "user_id"
@@ -52,6 +63,13 @@ ActiveRecord::Schema.define(version: 20160714230949) do
 
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
+  create_table "mailing_lists", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "minutes", force: :cascade do |t|
     t.string   "title"
     t.string   "location"
@@ -74,6 +92,21 @@ ActiveRecord::Schema.define(version: 20160714230949) do
 
   add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
+
+  create_table "photographs", force: :cascade do |t|
+    t.string   "name"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.integer  "user_id"
+    t.integer  "album_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "photographs", ["album_id"], name: "index_photographs_on_album_id", using: :btree
+  add_index "photographs", ["user_id"], name: "index_photographs_on_user_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.integer  "user_id"
@@ -128,6 +161,8 @@ ActiveRecord::Schema.define(version: 20160714230949) do
   add_foreign_key "events", "users"
   add_foreign_key "notes", "tasks"
   add_foreign_key "notes", "users"
+  add_foreign_key "photographs", "albums"
+  add_foreign_key "photographs", "users"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "projects"
   add_foreign_key "tasks", "users"

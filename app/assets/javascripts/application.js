@@ -13,14 +13,14 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
+//= require twitter/bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
 //= require fancybox
 //= require tether
 //= require cocoon
 //= require freewall
-//= require gallery
 //= require datatoggle
+//= require app
 //= require_tree .
 //= require turbolinks
