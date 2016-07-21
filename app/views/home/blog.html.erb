@@ -4,16 +4,14 @@
 			<div id="instagram" class="row-fluid" dir="ltr">
 				<% @instagram.each do |instagram| %>
 				<div class="igPic nopadding">
-					<%= link_to href:'http://www.instagram.com/thepabfather', :class => "blog-link" do %>
 				    <%= image_tag instagram.images.standard_resolution.url, class:"img-responsive" %>
-				  	<% end %>
 				</div>
 				<% end %>
 			</div>
 		</div>
 		<h1 class="text-center thicker ig">Share your #PRWLife stories with us on <a href="https://www.instagram.com/">Instagram</a></h1>
 		<h1 class="text-center thicker bigmgn">WATERSHED BLOG</h1>
-		<h5 class=" text-center text-muted">Learn about what's going on in your Watershed</h5 class="text-muted">		
+		<h5 class=" text-center text-muted">Learn about what's going on in your Watershed</h5 class="text-muted">
 		<div class="center-icon center-block">
 			<div class="img-square">
 				<%= image_tag("break-element.jpg", class:"img-responsive") %>
@@ -53,5 +51,5 @@
 				<% end %>
 			<% end %>
 			</div>
-		</div>	
-	</div>	
+		</div>
+	</div>
