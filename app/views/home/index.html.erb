@@ -1,92 +1,122 @@
 <!-- Banner -->
 <div class="row nopadding">
 	<%= image_tag("bg/white-river.jpg", class:"img-responsive") %>
-	<div clas="col-md-12">
-		<h1 class="text-center thicker bigmgn">PUYALLUP RIVER WATERSHED COUNCIL</h1>
+	<div class="margin-bottom-20"></div>
+	<div class="col-md-12 headline">
+		<h1 class="text-center thicker">PUYALLUP RIVER WATERSHED COUNCIL</h1>
 		<h5 class=" text-center text-muted">Keeping you informed on what's happening in your watershed</h5>
 		<div class="center-icon center-block">
 			<div class="img-square">
-				<%= image_tag("break-element.jpg", class:"img-responsive") %>
+				<%= image_tag("break-element.png", class:"img-responsive") %>
+			</div>
+		</div>
+		<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-2 col-md-offset-2">
+				<div class="info-box">
+					<h3 class="text-center title">Next Meeting</h3>
+					<div class="date col-md-5">
+						<h2 class="date"><span class="month"><%= @meeting.try(:date).strftime("%-m") %></span><span class="slash">/</span><span class="day"><%= @meeting.try(:date).strftime("%-d") %></span></h2>
+					</div>
+					<h3 class="time"><%= @meeting.try(:date).strftime("%l:%M%p") %></h3>
+					<h3 class="meeting-name"><%= @meeting.try(:title) %></h3>
+					<hr />
+					<div class="info">
+						<p><%= @meeting.try(:location) %><br />
+							<%= @meeting.try(:street) %> <br />
+							<%= @meeting.try(:city) %> <%= @meeting.try(:state) %> <%= @meeting.try(:zip) %>
+						</p>
+						<%= link_to "View Meeting Agenda", minutes_path(@meeting) %>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-2 col-md-offset-1">
+				<div class="info-box">
+					<h3 class="text-center title">Newsletter</h3>
+					<input class="form-control" style="text" />
+					<button class="btn btn-block btn-primary"> Sign Up</button>
+					<hr />
+					<p class="info">Get the inside track on everything that is going on in our watershed, stunning photos from other community members and information on opportunities to volunteer!
+					</p>
+				</div>
+			</div>
+			<div class="col-md-2 col-md-offset-1">
+				<div class="info-box">
+					<h3 class="text-center title">Latest News</h3>
+					<h4 class="news">Buckley Diversion Dam</h4>
+					<hr />
+					<p>Environmental impacts from the proposed project include both short-term and long-term changes
+						to the baseline condition. Short-term impacts are episodic and principally associated... <%= link_to "Read More", "http://www.nws.usace.army.mil/Portals/27/docs/environmental/resources/2015EnvironmentalDocuments/Draft_FINAL_Fish_Trap_and_Barrier_Structure_EA_4-30-15_FINAL.pdf?ver=2015-05-05-125719-650" , target:"_blank" %>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-10 col-md-offset-1">
-			<div class="col-md-2 col-md-offset-2 info-box">
-				<h4 class="text-center">Meetings</h4>
-			</div>
-			<div class="col-md-2 col-md-offset-1 info-box">
-				<h4 class="text-center">Newsletter</h4>
-			</div>
-			<div class="col-md-2 col-md-offset-1 info-box">
-				<h4 class="text-center">Latest News</h4>
-			</div>
-	</div>
 	<!-- Explore The Watershed -->
-	<div clas="col-md-12">
+	<div clas="col-md-12 nopadding">
 		<h1 class="text-center thicker bigmgn">EXPLORE THE WATERSHED</h1>
 		<h5 class=" text-center text-muted">The Puyallup River Watershed Pano Project</h5>
 		<div class="center-icon center-block">
 			<div class="img-square">
-				<%= image_tag("break-element.jpg", class:"img-responsive") %>
+				<%= image_tag("break-element.png", class:"img-responsive") %>
 			</div>
 		</div>
-	</div>
-	<div class="row nopadding">
-		<div class="col-md-12 nopadding">
-			<div class="nopadding col-xs-12 col-sm-6 col-md-6 col-lg-3">
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/rainier_.jpg", class:"img-responsive") %>
-					</a>
+		<div class="row nopadding">
+			<div class="col-md-12 nopadding">
+				<div class="nopadding col-xs-12 col-sm-6 col-md-6 col-lg-3">
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/rainier_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/enumclaw_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/buckley_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
 				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/enumclaw_.jpg", class:"img-responsive") %>
-					</a>
+				<div class="nopadding col-xs-12 col-sm-6 col-md-6 col-lg-3 clearfix">
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/whiteriver_.jpeg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/port_container_.jpeg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/sumner_.jpeg", class:"img-responsive") %>
+						</a>
+					</div>
 				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/buckley_.jpg", class:"img-responsive") %>
-					</a>
-				</div>
-			</div>
-			<div class="nopadding col-xs-12 col-sm-6 col-md-6 col-lg-3 clearfix">
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/puyallup_.jpeg", class:"img-responsive") %>
-					</a>
-				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/whiteriver_.jpeg", class:"img-responsive") %>
-					</a>
-				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/port_container_.jpeg", class:"img-responsive") %>
-					</a>
-				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/sumner_.jpeg", class:"img-responsive") %>
-					</a>
-				</div>
-			</div>
-			<div class="nopadding col-xs-12 col-sm-12 col-md-12 col-lg-6 clearfix">
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/farm_.jpg", class:"img-responsive") %>
-					</a>
-				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/laketapps_.jpg", class:"img-responsive") %>
-					</a>
-				</div>
-				<div class="col-md-12 nopadding">
-					<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
-						<%= image_tag("virtual/greenriver_.jpg", class:"img-responsive") %>
-					</a>
+				<div class="nopadding col-xs-12 col-sm-12 col-md-12 col-lg-6 clearfix">
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/farm_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/laketapps_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
+					<div class="col-md-12 nopadding">
+						<a href="http://thepanoproject.sky9.us/" class="blog-link" target='_blank'>
+							<%= image_tag("virtual/greenriver_.jpg", class:"img-responsive") %>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -96,106 +126,107 @@
 	<div class="col-md-12 event">
 		<h2 class="col-md-3 thick"> Next Upcoming Event:</h2>
 		<h2 class="col-md-5 thick"><%= truncate(@event.try(:title), length: 20) %> </h2>
-		<h2 class="col-md-4 thick"> <%= @event.try(:date, :strftime,"%b. %d @ %l:%M %p" ) %>
-			<%= link_to "View All", home_events_path, class:"ebutton pull-right hidden-xs hidden-sm" %></h2>
-			<%= link_to home_events_path, class:"ebutton btn-block text-center hidden-md hidden-lg" do %>
-			View All
-			<% end %>
-		</div>
+		<h2 class="col-md-4 thick"> <%= @event.try(:date). strftime("%b. %d @ %l:%M %p") %>
+			<%= link_to "View All", home_events_path, class:"ebutton pull-right hidden-xs hidden-sm" %>
+		</h2>
+		<%= link_to home_events_path, class:"ebutton btn-block text-center hidden-md hidden-lg" do %>
+		View All
+		<% end %>
+	</div>
 
-		<!-- Blog -->
-		<div class="col-md-12">
-			<h1 class="text-center thicker bigmgn">WATERSHED BLOG</h1>
-			<h5 class=" text-center text-muted">Built By Our Elite Author's Love & Professionalism</h5>
-			<div class="center-icon center-block img-square">
-				<%= image_tag("break-element.jpg", class:"img-responsive") %>
-			</div>
+	<!-- Blog -->
+	<div class="col-md-12">
+		<h1 class="text-center thicker bigmgn">WATERSHED BLOG</h1>
+		<h5 class=" text-center text-muted">Built By Our Elite Author's Love & Professionalism</h5>
+		<div class="center-icon center-block img-square">
+			<%= image_tag("break-element.png", class:"img-responsive") %>
 		</div>
-		<div class="col-md-12">
-			<div class="col-md-10 col-md-offset-1">
-				<% if @blogs.any? %>
-				<% @blogs.each do |b| %>
-				<% if b.id.even? %>
-				<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
-					<a href="<%= post_path(b) %>" class="blog-link">
-						<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
-							<h3><%= b.title %></h3>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-10 col-md-offset-1">
+			<% if @blogs.any? %>
+			<% @blogs.each do |b| %>
+			<% if b.id.even? %>
+			<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
+				<a href="<%= post_path(b) %>" class="blog-link">
+					<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
+						<h3><%= b.title %></h3>
+					</div>
+					<div class="col-md-12 nopadding">
+						<div class="col-xs-12 col-sm-12 col-md-5 nopadding">
+							<%= image_tag b.avatar.url(:large), class:"img-responsive" %>
 						</div>
-						<div class="col-md-12 nopadding">
-							<div class="col-xs-12 col-sm-12 col-md-5 nopadding">
-								<%= image_tag b.avatar.url(:large), class:"img-responsive" %>
-							</div>
-							<div class="col-md-7 hidden-xs hidden-sm">
-								<span class="blog-title-lg">
-									<h3><%= b.title %></h3>
-									<small>By Patty Denny - 12/12/15</small>
-								</span>
-							</div>
-						</div>
-					</a>
-				</div>
-				<% else %>
-				<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
-					<a href="<%= post_path(b) %>" class="blog-link">
-						<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
-							<h3><%= b.title %></h3>
-						</div>
-						<div class="col-xs-12 col-sm-12 col-md-5 col-md-push-7 nopadding">
-							<%= image_tag b.avatar.url(:large), class:"img-responsive pull-right" %>
-						</div>
-						<div class="hidden-xs col-md-7 col-md-pull-5">
-							<span>
+						<div class="col-md-7 hidden-xs hidden-sm">
+							<span class="blog-title-lg">
 								<h3><%= b.title %></h3>
 								<small>By Patty Denny - 12/12/15</small>
 							</span>
 						</div>
-					</a>
-				</div>
-				<% end %>
-				<% end %>
-				<% end %>
+					</div>
+				</a>
 			</div>
+			<% else %>
+			<div class="col-xs-12 col-md-8 col-md-offset-2 border blog">
+				<a href="<%= post_path(b) %>" class="blog-link">
+					<div class="visible-xs visible-sm col-xs-12 blog-title-sm">
+						<h3><%= b.title %></h3>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-5 col-md-push-7 nopadding">
+						<%= image_tag b.avatar.url(:large), class:"img-responsive pull-right" %>
+					</div>
+					<div class="hidden-xs col-md-7 col-md-pull-5">
+						<span>
+							<h3><%= b.title %></h3>
+							<small>By Patty Denny - 12/12/15</small>
+						</span>
+					</div>
+				</a>
+			</div>
+			<% end %>
+			<% end %>
+			<% end %>
 		</div>
+	</div>
+	<div class="center-icon center-block img-square">
+		<%= image_tag("break-element.png", class:"img-responsive") %>
+	</div>
+	<!-- Membership Options -->
+	<div class="col-md-12 membership bigmgn">
+		<h1 class="text-center thicker white-font" style="margin-top:-10px;">SUPPORT</h1>
+		<h5 class=" text-center text-muted white-font">Help to keep our waters clean and flowing</h5>
+		<div class="col-md-6 col-md-offset-3">
+			<div class="hidden-xs hidden-sm col-md-4 plans">
+				<%= image_tag("bg/member1.png", class:"img-responsive") %>
+			</div>
+			<div class="hidden-xs hidden-sm col-md-4 plans">
+				<%= image_tag("bg/member2.png", class:"img-responsive") %>
+			</div>
+			<div class="hidden-xs hidden-sm col-md-4 plans">
+				<%= image_tag("bg/member3.png", class:"img-responsive") %>
+			</div>
+			<h3 class="text-center"><%= link_to home_memberships_path, id:"plan_link" do%> View All Memberships<% end %></h3>
+		</div>
+	</div>
+	<!-- Contact Us -->
+	<div class="col-md-12">
+		<h1 class="text-center thicker bigmgn">CONTACT US</h1>
+		<h5 class=" text-center text-muted">Better Chance To Get To Know More</h5>
 		<div class="center-icon center-block img-square">
-			<%= image_tag("break-element.jpg", class:"img-responsive") %>
+			<%= image_tag("break-element.png", class:"img-responsive") %>
 		</div>
-		<!-- Membership Options -->
-		<div class="col-md-12 membership bigmgn">
-			<h1 class="text-center thicker white-font" style="margin-top:-10px;">SUPPORT</h1>
-			<h5 class=" text-center text-muted white-font">Help to keep our waters clean and flowing</h5>
-			<div class="col-md-6 col-md-offset-3">
-				<div class="hidden-xs hidden-sm col-md-4 plans">
-					<%= image_tag("bg/member1.png", class:"img-responsive") %>
-				</div>
-				<div class="hidden-xs hidden-sm col-md-4 plans">
-					<%= image_tag("bg/member2.png", class:"img-responsive") %>
-				</div>
-				<div class="hidden-xs hidden-sm col-md-4 plans">
-					<%= image_tag("bg/member3.png", class:"img-responsive") %>
-				</div>
-				<h3 class="text-center"><%= link_to home_memberships_path, id:"plan_link" do%> View All Memberships<% end %></h3>
+	</div>
+	<div id="gmap" class="col-md-12 nopadding">
+		<div id="contact" class="col-md-5">
+			<div class="col-md-8 col-md-offset-2 contact-form padding">
+				<h3 class="text-center white-font">Send Us A Message</h3>
+				<%= render "contact_forms/new" %>
 			</div>
 		</div>
-		<!-- Contact Us -->
-		<div class="col-md-12">
-			<h1 class="text-center thicker bigmgn">CONTACT US</h1>
-			<h5 class=" text-center text-muted">Better Chance To Get To Know More</h5>
-			<div class="center-icon center-block img-square">
-				<%= image_tag("break-element.jpg", class:"img-responsive") %>
-			</div>
-		</div>
-		<div id="gmap" class="col-md-12 nopadding">
-			<div id="contact" class="col-md-5">
-				<div class="col-md-8 col-md-offset-2 contact-form padding">
-					<h3 class="text-center white-font">Send Us A Message</h3>
-					<%= render "contact_forms/new" %>
-				</div>
-			</div>
-			<div class="col-md-7 nopadding">
-				<div class="embed-responsive embed-responsive-16by9 short">
-					<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.393870736967!2d-122.29563194842797!3d47.18930287905687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490fc1b4a569659%3A0x2ee6339483e2c083!2s333+S+Meridian%2C+Puyallup%2C+WA+98371!5e0!3m2!1sen!2sus!4v1454619516339" width="100%" height="500" frameborder="0" style="border:0">
-					</iframe>
-				</div>
+		<div class="col-md-7 nopadding">
+			<div class="embed-responsive embed-responsive-16by9 short">
+				<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.393870736967!2d-122.29563194842797!3d47.18930287905687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490fc1b4a569659%3A0x2ee6339483e2c083!2s333+S+Meridian%2C+Puyallup%2C+WA+98371!5e0!3m2!1sen!2sus!4v1454619516339" width="100%" height="500" frameborder="0" style="border:0">
+				</iframe>
 			</div>
 		</div>
 	</div>
+</div>

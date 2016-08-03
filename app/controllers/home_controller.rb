@@ -8,7 +8,7 @@ class HomeController < ApplicationController
         @contact_form = ContactForm.new
         @blogs = Blog.all.order("created_at DESC").limit(3)
         @event = Event.where('date >= ?', Date.today).order('date ASC').first
-
+        @meeting = Minute.where('date >= ?', Date.today).order('date ASC').first
     end
 
     def show_album

@@ -1,7 +1,7 @@
 <div class="row nopadding">
 	<div class="col-md-12">
 		<% @album.each do |album| %>
-		<div class="cover col-md-3">
+		<div class="cover col-xs-12 col-md-3">
 			<%= link_to show_album_path(album) do %><%= image_tag album.avatar.url(:medium), class:"img-responsive" %><% end %>
 			<h3 class="title"><%= album.title %></h3>
 		</div>

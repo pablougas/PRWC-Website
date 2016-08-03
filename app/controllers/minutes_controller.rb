@@ -71,6 +71,6 @@ class MinutesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def minute_params
-      params.require(:minute).permit(:title, :location, :street, :city, :state, :zip, :date)
+      params.require(:minute).permit(:title, :location, :street, :city, :state, :zip, :date, agendas_attributes: [:id, :_destroy, :minute_id, :time , :name])
     end
 end

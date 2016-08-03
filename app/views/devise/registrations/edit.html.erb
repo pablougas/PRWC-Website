@@ -2,11 +2,7 @@
    <div class="wrapper">
       <div class="col-md-3">
             <ul class="nav nav-pills nav-stacked">
-               <li role="presentation"><%= link_to "Home", welcome_index_path %></li>
-               <li role="presentation"><%= link_to "Events", events_path %></li>
-               <li role="presentation"><%= link_to "Blog Posts", blogs_path %></li>
-               <li role="presentation"><%= link_to "My Tasks", tasks_path %></li>
-               <li role="presentation" class="active"><%= link_to "Edit Profile", edit_user_registration_path %></li>
+               <li role="presentation"><%= link_to "Go Back to Dashboard", welcome_index_path %></li>
             </ul>
             <hr>
          </div>
@@ -17,7 +13,7 @@
                   <div id="editform">
                      <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                      <%= devise_error_messages! %>
-                     
+
                      <div class="field">
                      <%= f.email_field :email, hide_label: true, placeholder:'Email', autofocus: true %>
                      </div>

@@ -9,8 +9,68 @@
 	margin-bottom: 30px;
 	vertical-align: middle;
 }
+.headline {
+	padding-top: 10px;
+	background-color: #fbfbfb;
+	margin-top: 10px;
+	margin-bottom: 80px !important;
+}
 .info-box {
-	
+	padding: 5px 15px 5px 15px;
+	margin-bottom: 20px;
+}
+.info-box h3.title {
+	color: #555;
+	border-bottom: 1px solid white;
+	padding-bottom: 8px;
+}
+.info {
+	margin-bottom: 5px;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 500;
+}
+.info-box a {
+	color: #7aa13f !important;
+}
+.date {
+	position: relative;
+	margin-top: 5px;
+	margin-left: -5px;
+}
+.date .month {
+	font-size: 90%;
+	color: brown;
+	vertical-align: top;
+	margin-right: -5px;
+}
+.date .slash {
+	font-size: 200%;
+	vertical-align: bottom;
+	color: #555;
+}
+.date .day {
+	color: brown;
+	vertical-align: bottom;
+	margin-top: 20px;
+	margin-left: -5px;
+}
+.time {
+	color: #7aa13f;
+	margin-bottom: 0px;
+	text-align: right;
+}
+.meeting-name {
+	margin-top: 0px;
+	color: #555;
+	text-align: right;
+	vertical-align: text-top;
+	text-transform: uppercase;
+}
+.news {
+	text-transform: uppercase;
+	color: #7aa13f;
+	text-align: center;
 }
 .event {
 	color: #ffffff;
