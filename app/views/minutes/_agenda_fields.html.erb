@@ -2,13 +2,12 @@
     <hr />
     <fieldset>
         <div class="col-md-10">
-        <div class="input-group margin-bottom-20 field">
-            <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
-            <%= f.text_field :name, hide_label:true, placeholder:"Enter Agenda" %>
+        <div class="margin-bottom-20 field">
+            <%= f.text_field :name, placeholder:"Enter Agenda", label: "Agenda/Minute Description" %>
         </div>
     </div>
         <div class="col-md-2">
-          <%= f.time_select :time, hide_label: true %>
+          <%= f.time_select :time,  {ampm: true}, hide_label: true %>
         </div>
     </fieldset>
 </div>

@@ -1,0 +1,26 @@
+<%= bootstrap_form_for(@newsletter_list) do |f| %>
+  <% if @newsletter_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@newsletter_list.errors.count, "error") %> prohibited this newsletter_list from being saved:</h2>
+
+      <ul>
+      <% @newsletter_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, hide_label:true, placeholder:"Full Name" %>
+  </div>
+  <div class="field">
+    <%= f.text_field :email, hide_label:true, placeholder:"Email" %>
+  </div>
+  <div class="field">
+    <%= f.check_box :added, label:"Added to Mailer" %>
+  </div>
+  <div class="actions pull-right">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="col-md-9">
+   <div class="panel panel-primary">
+      <div class="panel-heading clearfix">
+         <h4 class="pull-left">Newsletter List</h4>
+         <%= link_to new_newsletter_list_path, class:"btn btn-info pull-right" do %><i class="fa fa-plus"></i> New Subscriber<% end %>
+      </div>
+      <div class="panel-body">
+         <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th class="col-md-2">Name</th>
+                     <th class="col-md-5">Email</th>
+                     <th class="col-md-4">Added To Mailer</th>
+                     <th class="col-md-1"></th>
+                  </tr>
+               </thead>
+
+               <tbody>
+    <% @newsletter_lists.each do |newsletter_list| %>
+      <tr>
+        <td><%= newsletter_list.name %></td>
+        <td><%= newsletter_list.email %></td>
+        <td><%= newsletter_list.added %></td>
+        <td>
+            <span class="pull-right">
+               <%= link_to edit_newsletter_list_path(newsletter_list), data: {toggle: "tooltip", title: "Edit Subscriber"} do %>
+               <i class="fa fa-wrench"></i>
+               <% end %>
+               &nbsp | &nbsp
+               <%= link_to newsletter_list, method: :delete, data: { toggle: "tooltip", title: "Delete Subscriber", confirm: 'Are you sure?' } do %>
+               <i class="fa fa-remove"></i>
+               <% end %>
+            </span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -9,6 +9,7 @@ class HomeController < ApplicationController
         @blogs = Blog.all.order("created_at DESC").limit(3)
         @event = Event.where('date >= ?', Date.today).order('date ASC').first
         @meeting = Minute.where('date >= ?', Date.today).order('date ASC').first
+        @newsletter_list = NewsletterList.new
     end
 
     def show_album

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :newsletter_lists
   resources :mailing_lists
   resources :photographs
   resources :albums
@@ -8,8 +9,8 @@ Rails.application.routes.draw do
     resources :notes
   end
   resources :blogs
-  resources :events, :only => [:index, :new, :edit, :create, :update, :destroy]
-  resources :projects, :only => [:show, :new, :edit, :create, :update, :destroy]
+  resources :events, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :projects, only: [:show, :new, :edit, :create, :update, :destroy]
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
