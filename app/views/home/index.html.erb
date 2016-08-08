@@ -25,8 +25,9 @@
 							<%= @meeting.try(:street) %> <br />
 							<%= @meeting.try(:city) %> <%= @meeting.try(:state) %> <%= @meeting.try(:zip) %>
 						</p>
-						<%= link_to "View Meeting Agenda", minutes_path(@meeting) %>
+						<button data-toggle="modal" data-target="#viewAgenda" class="btn-link" >View Details</button>
 					</div>
+					<hr />
 				</div>
 			</div>
 			<div class="col-xs-12 col-md-2 col-md-offset-1">
@@ -46,10 +47,42 @@
 					<p>Environmental impacts from the proposed project include both short-term and long-term changes
 						to the baseline condition. Short-term impacts are episodic and principally associated... <%= link_to "Read More", "http://www.nws.usace.army.mil/Portals/27/docs/environmental/resources/2015EnvironmentalDocuments/Draft_FINAL_Fish_Trap_and_Barrier_Structure_EA_4-30-15_FINAL.pdf?ver=2015-05-05-125719-650" , target:"_blank" %>
 					</p>
+					<hr />
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="viewAgenda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel"><%= @meeting.try(:title) %> Details</h4>
+				</div>
+				<div class="modal-body">
+					<div class="pull-right">
+						<p>
+						<%= @meeting.try(:location) %><br />
+						<%= @meeting.try(:street) %> <br />
+						<%= @meeting.try(:city) %> <%= @meeting.try(:state) %> <%= @meeting.try(:zip) %>
+					</p>
+					</div>
+					<div>
+						<% @meeting.agendas.each do |a| %>
+						<h5><%= a.time.strftime("%l:%M%p") %> - <%= a.name %></h5>
+						<% end %>
+					</div>
+				</div>
+				<div class="margin-bottom-20"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Explore The Watershed -->
 	<div clas="col-md-12 nopadding">
 		<h1 class="text-center thicker bigmgn">EXPLORE THE WATERSHED</h1>
