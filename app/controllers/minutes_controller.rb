@@ -30,7 +30,7 @@ class MinutesController < ApplicationController
 
     respond_to do |format|
       if @minute.save
-        format.html { redirect_to @minute, notice: 'Minute was successfully created.' }
+        format.html { redirect_to minutes_path, notice: 'Minute was successfully created.' }
         format.json { render :show, status: :created, location: @minute }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class MinutesController < ApplicationController
   def update
     respond_to do |format|
       if @minute.update(minute_params)
-        format.html { redirect_to @minute, notice: 'Minute was successfully updated.' }
+        format.html { redirect_to minutes_path, notice: 'Minute was successfully updated.' }
         format.json { render :show, status: :ok, location: @minute }
       else
         format.html { render :edit }
