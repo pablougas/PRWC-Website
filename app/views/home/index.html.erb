@@ -10,6 +10,7 @@
 				<%= image_tag("break-element.png", class:"img-responsive") %>
 			</div>
 		</div>
+		<% if @meeting.present? %>
 		<div class="col-md-10 col-md-offset-1">
 			<div class="col-xs-12 col-md-2 col-md-offset-2">
 				<div class="info-box">
@@ -51,37 +52,39 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Modal -->
-	<div class="modal fade" id="viewAgenda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><%= @meeting.try(:title) %> Details</h4>
-				</div>
-				<div class="modal-body">
-					<div class="pull-right">
-						<p>
-						<%= @meeting.try(:location) %><br />
-						<%= @meeting.try(:street) %> <br />
-						<%= @meeting.try(:city) %> <%= @meeting.try(:state) %> <%= @meeting.try(:zip) %>
-					</p>
+		<!-- Modal -->
+		<div class="modal fade" id="viewAgenda" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel"><%= @meeting.try(:title) %> Details</h4>
 					</div>
-					<div>
-						<% @meeting.agendas.each do |a| %>
-						<h5><%= a.time.strftime("%l:%M%p") %> - <%= a.name %></h5>
-						<% end %>
+					<div class="modal-body">
+						<div class="pull-right">
+							<p>
+								<%= @meeting.try(:location) %><br />
+								<%= @meeting.try(:street) %> <br />
+								<%= @meeting.try(:city) %> <%= @meeting.try(:state) %> <%= @meeting.try(:zip) %>
+							</p>
+						</div>
+						<div>
+							<% @meeting.agendas.each do |a| %>
+							<h5><%= a.time.strftime("%l:%M%p") %> - <%= a.name %></h5>
+							<% end %>
+						</div>
 					</div>
-				</div>
-				<div class="margin-bottom-20"></div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<div class="margin-bottom-20"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
+		<% end %>
 	</div>
+
 
 	<!-- Explore The Watershed -->
 	<div clas="col-md-12 nopadding">
@@ -157,12 +160,16 @@
 	<!-- Events Stream -->
 	<div class="col-md-12 event">
 		<h2 class="col-md-3 thick"> Next Upcoming Event:</h2>
-		<h2 class="col-md-5 thick"><%= truncate(@event.try(:title), length: 20) %> </h2>
+		<% if @event.present? %>
+		<h2 class="col-md-5 thick"><%= truncate(@event.title, length: 20) %> </h2>
 		<h2 class="col-md-4 thick"> <%= @event.try(:date).strftime("%b. %d @ %l:%M %p") %>
 			<%= link_to "View All", home_events_path, class:"ebutton pull-right hidden-xs hidden-sm" %>
 		</h2>
 		<%= link_to home_events_path, class:"ebutton btn-block text-center hidden-md hidden-lg" do %>
 		View All
+		<% end %>
+		<% else %>
+		 <h2>No upcoming events scheduled</h2>
 		<% end %>
 	</div>
 

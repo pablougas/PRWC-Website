@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all.order("date ASC")
+    @events = Event.all.where("date > ?", Date.today-1.day).order("date ASC")
   end
 
   # GET /events/1
