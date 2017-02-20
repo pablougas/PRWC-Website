@@ -1,3 +1,17 @@
+@media (min-width: 768px) and (max-width: 1200px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    .navbar-header .collapse, .navbar-toggle {
+        display:block !important;
+    }
+    .navbar-header {
+        float:none;
+    }
+}
 @media (min-width : 200px) {
 	.sponsor-info {
 		position:absolute;
@@ -45,7 +59,12 @@ body {
 .margin-bottom-30 {
     margin-bottom: 30px;
 }
-
+.margin-bottom-40 {
+    margin-bottom: 40px;
+}
+.margin-bottom-50 {
+    margin-bottom: 50px;
+}
 .margin-bottom-20 {
     margin-bottom: 20px;
 }
@@ -58,10 +77,52 @@ body {
 	padding-top: 80px;
 }
 
+header.container {
+	position: relative;
+	min-height: 70px;
+}
+
+#myNavbar {
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	margin-top: 20px;
+}
+.navbar-toggle {
+	background-color: #7aa13f;
+}
+.icon-bar {
+	background-color: white;
+}
 .logo {
+	width: 18%;
+	padding: 8px;
 	position: absolute;
-	margin-left: 0px;
-	margin-top: 0px;
+	left: 0;
+	top: 0;
+    z-index: 99;
+    background-color: white;
+}
+.navbar-brand {
+	color: #555 !important;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	width: 120px;
+	height: 90px;
+}
+.navbar-collapse {
+	background-color: white !important;
+}
+.navbar-nav > li > a:hover {
+	color: white;
+	background-color: #7aa13f !important;
+}
+.navbar-nav > li > a {
+	color: #555;
+}
+.navbar-nav > .active > a {
+	color: white;
+	background-color: #7aa13f !important;
 }
 
 .thick {
@@ -84,56 +145,6 @@ body {
 
 .inline {
 	display: inline-block;
-}
-
-header{
-	position: relative;
-}
-
-.head {
-	border-bottom: 1px solid #555
-}
-
-.navbar {
-	padding: 0 !important;
-	margin: 0 !important;
-	border: 0;
-}
-
-.navbar-top {
-	background-color: white;
-	height: 125px;
-}
-
-.nav-top {
-	position: absolute;
-	bottom: 0;
-}
-
-.navbar-nav > li > a {
-	margin: 0px !important;
-	font-weight: 700;
-    text-align: center;
-    > li {
-      float: none;
-      display: inline-block;
-    }
-}
-
-.navbar-nav > li > a:hover {
-	background-color: #7aa13f !important;
-}
-
-.navbar-nav > .active > a {
-	background-color: #7aa13f !important;
-}
-
-.navbar-toggle {
-	background-color: grey !important;
-}
-
-.logo {
-	max-height: 125px;
 }
 
 .white-font {

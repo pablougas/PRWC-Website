@@ -14,24 +14,25 @@
 </head>
 <body>
 	<header class="container">
-		<nav id="myNavbar" class="navbar navbar-inverse navbar-static-top nopadding navbar-top">
-			<div class="row nopadding">
-
+		<nav id="myNavbar" class="navbar navbar-static-bottom">
+			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<%= image_tag('logo2.png', class:'img-responsive logo hidden-md hidden-lg pull-left') %>
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
+					<%= image_tag('logo2.png', class:"navbar-brand hidden-lg img-responsive sm-logo") %>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse navbar-left clearfix" id="main-nav">
-					<%= image_tag('logo2.png', class:'img-responsive logo hidden-sm hidden-xs') %>
-					<ul class="nav navbar-nav nav-top">
+				<div class="collapse navbar-collapse" id="main-nav">
+					<div class="logo hidden-xs hidden-sm">
+						<%= image_tag('logo2.png', class:'img-responsive') %>
+					</div>
+					<ul class="nav navbar-nav">
 						<li id="menu-margin"class="<%= 'active' if current_page?(home_index_path) %>"><%= link_to "Home", home_index_path %></li>
 						<li class="<%= 'active' if current_page?(home_about_path) %>"><%= link_to "About", home_about_path %></li>
 						<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>
@@ -39,27 +40,17 @@
 						<li class="<%= 'active' if current_page?(home_gallery_path) %>"><%= link_to "Gallery", home_gallery_path %></li>
 						<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Memberships", home_memberships_path %></li>
 						<li id="contactScroll" class="<%= 'active' if current_page?(home_index_path(:anchor => "contact")) %>"><%= link_to("Contact", home_index_path(:anchor => "contact")) %></li>
-						<li class="hidden-sm hidden-md hidden-lg"><%= link_to "Sign In", user_session_path %></li>
-					</ul>
-				</div>
-				<div class="hidden-xs collapse navbar-collapse navbar-right">
-					<ul class="nav navbar-nav" id="removeOnCollapse">
-						<% if user_signed_in? %>
+						<% if current_user.blank? %>
+						<li class=><%= link_to "Sign In", user_session_path %></li>
+						<% else %>
 						<li>
 							<%= link_to root_path do %>
-							<i class="fa fa-dashboard"></i>
+							<i class="fa fa-dashboard"> </i> Dashboard
 							<% end %>
 						</li>
 						<li>
 							<%= link_to destroy_user_session_path, method: 'delete' do %>
-							<i class="fa fa-power-off"></i>
-							<% end %>
-						</li>
-						<% else %>
-						<li><% link_to "Sign Up", new_user_registration_path %></li>
-						<li>
-							<%= link_to user_session_path do %>
-							<i class="fa fa-sign-in"></i>
+							<i class="fa fa-power-off"> </i> Sign Out
 							<% end %>
 						</li>
 						<% end %>
@@ -74,7 +65,7 @@
 	<% if alert %>
 	<p class="alert alert-danger"><%= alert %></p>
 	<% end %>
-
+	<div class="margin-bottom-50"></div>
 	<!-- Display menu for dashboard -->
 	<div class="row nopadding">
 		<div class="col-md-10 col-md-offset-1 wrapper">

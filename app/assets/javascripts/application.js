@@ -24,3 +24,9 @@
 //= require app
 //= require_tree .
 //= require turbolinks
+
+$(function (){
+    $('.navbar-toggle').click(function (){
+        $('.sm-logo').toggle();
+    })
+})
