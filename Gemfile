@@ -63,7 +63,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #devise used for login and registration
-gem 'devise'
+gem 'devise', '~> 4.2.0'
 
 #lets make things prettier in console
 gem 'hirb'
