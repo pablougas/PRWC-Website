@@ -26,7 +26,7 @@
                         <% end %>
                      </td>
                      <td class="col-md-5"><%= event.description %></td>
-                     <td class="col-md-2"><%= event.date.present? event.date.strftime("%b. %d, %Y @ %l:%M %p") : "No date set" %></td>
+                     <td class="col-md-2"><%= event.date.present? ? event.date.strftime("%b. %d, %Y @ %l:%M %p") : "No date set" %></td>
                      <% if event.link? %>
                      <td class="col-md-2">Available</td>
                      <% else %>
