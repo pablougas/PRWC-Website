@@ -1,6 +1,6 @@
 class NewsletterListsController < ApplicationController
     layout 'dashboard'
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: :create
     before_action :set_newsletter_list, only: [:show, :edit, :update, :destroy]
 
     # GET /newsletter_lists
@@ -33,7 +33,7 @@ class NewsletterListsController < ApplicationController
                 format.html { redirect_to :back, notice: 'Newsletter Subscriber was successfully created.' }
                 format.json { render :show, status: :created, location: @newsletter_list }
             else
-                format.html { render :new }
+                format.html { render template:'newsletter_lists/home_form' }
                 format.json { render json: @newsletter_list.errors, status: :unprocessable_entity }
             end
         end

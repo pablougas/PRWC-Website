@@ -17,14 +17,17 @@
 <script type="text/javascript">
 function OnSubmitFn(){
     var form = document.getElementById("new_newsletter_list")
+    var name = document.getElementById("newsletter_list_name")
+    var email = document.getElementById("newsletter_list_email")
     var val = document.getElementsByName("g-recaptcha-response")
 
-    if(val && val[0].value) {
+    if(val && val[0].value && name.value && email.value) {
         var input = document.getElementById("recap");
         input.setAttribute("value", val[0].value);
         form.submit();
     } else {
         grecaptcha.reset()
+        alert('invalid submission')
     }
 }
 </script>
