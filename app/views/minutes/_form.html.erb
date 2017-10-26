@@ -13,13 +13,13 @@
 <div class="col-md-6">
     <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-bookmark"></i></span>
-        <%= f.text_field :title, hide_label:true, placeholder:"Meeting Name (Ex: October Meeting)" %>
+        <%= f.text_field :title, hide_label:true, placeholder:"Meeting Name (Ex: October Meeting)", required:true %>
     </div>
 </div>
 <div class='col-md-6'>
     <div class="form-group">
         <div class='input-group date' id='datetimepicker'>
-            <%= f.datetime_field :date, hide_label: true, class: 'form-control', data: { date_format: 'YYYY/MM/DD hh:mm A/PM' } %>
+            <%= f.datetime_field :date, hide_label: true, class: 'form-control', value:f.object.date, required:true %>
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -29,31 +29,31 @@
 <div class="col-md-12">
     <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-building"></i></span>
-        <%= f.text_field :location, hide_label:true, value:"Puyallup City Hall - 5th Floor" %>
+        <%= f.text_field :location, hide_label:true, value:f.object.location.present? ? f.object.location : "Puyallup City Hall - 5th Floor", required:true %>
     </div>
 </div>
 <div class="col-md-4">
     <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-        <%= f.text_field :street, hide_label:true, value:"333 S Meridian" %>
+        <%= f.text_field :street, hide_label:true, value:f.object.street.present? ? f.object.street : "333 S Meridian", required:true %>
     </div>
 </div>
 <div class="col-md-3">
     <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-        <%= f.text_field :city, hide_label:true, value:"Puyallup" %>
+        <%= f.text_field :city, hide_label:true, value:f.object.city.present? ? f.object.city : "Puyallup", required:true %>
     </div>
 </div>
 <div class="col-md-2">
     <div class="input-group margin-bottom-20">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-        <%= f.text_field :state, hide_label:true, value:"WA" %>
+        <%= f.text_field :state, hide_label:true, value:f.object.state.present? ? f.object.state : "WA", required:true %>
     </div>
 </div>
 <div class="col-md-3">
     <div class="input-group margin-bottom-20 field">
         <span class="input-group-addon"><i class="fa fa-map-marker"></i></span>
-        <%= f.number_field :zip, hide_label:true, value:"98371" %>
+        <%= f.number_field :zip, hide_label:true, value:f.object.zip.present? ? f.object.zip : "98371", required:true %>
     </div>
 </div>
 <hr />

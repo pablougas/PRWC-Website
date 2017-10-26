@@ -1,17 +1,32 @@
 <%= bootstrap_form_for(@newsletter_list) do |f| %>
-  <% if @newsletter_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@newsletter_list.errors.count, "error") %> prohibited this newsletter_list from being saved:</h2>
-      <ul>
-      <% @newsletter_list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <%= f.text_field :name, hide_label: true, placeholder:"Full Name" %>
-    <%= f.email_field :email, hide_label: true, placeholder:"E-Mail" %>
-  <div class="actions">
-    <%= f.submit "Sign Up", class:"btn btn-primary btn-block" %>
-  </div>
+    <% if @newsletter_list.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@newsletter_list.errors.count, "error") %> prohibited this newsletter_list from being saved:</h2>
+            <ul>
+                <% @newsletter_list.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.text_field :name, hide_label: true, placeholder:"Full Name", required:true %>
+    <%= f.email_field :email, hide_label: true, placeholder:"E-Mail", required:true %>
+    <%= f.hidden_field :recap, required:true, id:'recap' %>
+    <button class="g-recaptcha btn btn-block btn-success" data-sitekey="6Lfl6DUUAAAAADDDXGVBoCqyDVx5UobtGSjByBSC" data-callback="OnSubmitFn"> Submit </button>
 <% end %>
+<script type="text/javascript">
+function OnSubmitFn(){
+    var form = document.getElementById("new_newsletter_list")
+    var val = document.getElementsByName("g-recaptcha-response")
+
+    if(val && val[0].value) {
+        alert('woohoo!')
+        var input = document.getElementById("recap");
+        input.setAttribute("value", val[0].value);
+        form.submit();
+    } else {
+        alert('boohoo!')
+        grecaptcha.reset()
+    }
+}
+</script>

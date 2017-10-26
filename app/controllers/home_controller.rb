@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     def index
         @contact_form = ContactForm.new
         @blogs = Blog.all.order("created_at DESC").limit(3)
-        @event = Event.where('date >= ?', Date.today).order('date ASC').first
+        @event = Event.all.where('date >= ?', Date.today.beginning_of_day).order('date ASC').first
         @meeting = Minute.where('date >= ?', Date.today).order('date ASC').first
         @newsletter_list = NewsletterList.new
     end

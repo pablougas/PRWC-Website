@@ -13,12 +13,12 @@
    <% end %>
 
    <div class="col-md-6">
-      <%= f.text_field :title, hide_label: true, placeholder:'Title' %>
+      <%= f.text_field :title, hide_label: true, placeholder:'Title', required:true %>
    </div>
    <div class='col-md-6'>
       <div class="form-group">
         <div class='input-group date' id='datetimepicker1'>
-            <%= f.datetime_field :date, hide_label: true, class: 'form-control', value:f.object.date %>
+            <%= f.datetime_field :date, hide_label: true, class: 'form-control', value:f.object.date, required:true %>
             <span class="input-group-addon">
                <span class="glyphicon glyphicon-calendar"></span>
             </span>
