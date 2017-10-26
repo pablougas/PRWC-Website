@@ -1,7 +1,7 @@
 class NewsletterList < ActiveRecord::Base
     include HTTParty
     attr_accessor :recap
-    before_validation :verify_authenticity
+    before_validation :verify_authenticity, if: :recap
     validates :name, presence: true
     validates :email, presence: true
 

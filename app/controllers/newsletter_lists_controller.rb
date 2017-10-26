@@ -58,6 +58,7 @@ class NewsletterListsController < ApplicationController
     def destroy
         @newsletter_list.destroy
         respond_to do |format|
+            format.js { @newsletter_lists = NewsletterList.all }
             format.html { redirect_to newsletter_lists_url, notice: 'Newsletter subscriber was successfully destroyed.' }
             format.json { head :no_content }
         end
