@@ -1,5 +1,6 @@
 class MailingListsController < ApplicationController
   before_action :set_mailing_list, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /mailing_lists
   # GET /mailing_lists.json

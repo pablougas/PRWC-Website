@@ -1,5 +1,6 @@
 class NewsletterListsController < ApplicationController
     layout 'dashboard'
+    before_action :authenticate_user!
     before_action :set_newsletter_list, only: [:show, :edit, :update, :destroy]
 
     # GET /newsletter_lists
