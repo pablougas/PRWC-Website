@@ -20,12 +20,10 @@ function OnSubmitFn(){
     var val = document.getElementsByName("g-recaptcha-response")
 
     if(val && val[0].value) {
-        alert('woohoo!')
         var input = document.getElementById("recap");
         input.setAttribute("value", val[0].value);
         form.submit();
     } else {
-        alert('boohoo!')
         grecaptcha.reset()
     }
 }
