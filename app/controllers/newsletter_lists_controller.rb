@@ -6,7 +6,7 @@ class NewsletterListsController < ApplicationController
     # GET /newsletter_lists
     # GET /newsletter_lists.json
     def index
-        @newsletter_lists = NewsletterList.all
+        @newsletter_lists = NewsletterList.all.order('created_at DESC')
     end
 
     # GET /newsletter_lists/1
@@ -58,7 +58,7 @@ class NewsletterListsController < ApplicationController
     def destroy
         @newsletter_list.destroy
         respond_to do |format|
-            format.js { @newsletter_lists = NewsletterList.all }
+            format.js { @newsletter_lists = NewsletterList.all.order('created_at ASC') }
             format.html { redirect_to newsletter_lists_url, notice: 'Newsletter subscriber was successfully destroyed.' }
             format.json { head :no_content }
         end
