@@ -40,7 +40,7 @@
 							<li class="<%= 'active' if current_page?(home_events_path) %>"><%= link_to "Events", home_events_path %></li>
 							<li class="<%= 'active' if current_page?(home_blog_path) %>"><%= link_to "Blog", home_blog_path %></li>
 							<li class="<%= 'active' if current_page?(home_gallery_path) %>"><%= link_to "Gallery", home_gallery_path %></li>
-							<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Memberships", home_memberships_path %></li>
+							<li class="<%= 'active' if current_page?(home_memberships_path) %>"><%= link_to "Sponsor", home_memberships_path %></li>
 							<li id="contactScroll" class="<%= 'active' if current_page?(home_index_path(:anchor => "contact")) %>"><%= link_to("Contact", home_index_path(:anchor => "contact")) %></li>
 							<% if current_user.blank? %>
 								<li class=><%= link_to "Sign In", user_session_path %></li>
