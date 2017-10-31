@@ -32,7 +32,6 @@ $(document).ready(function(){
             }
         }
 
-
         $("#freewall").html(html);
 
         var wall = new Freewall("#freewall");
@@ -52,9 +51,11 @@ $(document).ready(function(){
         });
 
         $(".item").find("img").each( function() {
-            $(this).attr("hrefr",$(this).attr("src"));
+            $(this).attr("href",$(this).attr("src"));
         });
+
+        $(".fancybox").fancybox();
     }
-    $(".fancybox").fancybox();
+
 })
 </script>
