@@ -12,10 +12,6 @@ class HomeController < ApplicationController
         @newsletter_list = NewsletterList.new
     end
 
-    def show_album
-        gon.photos = @album.photographs
-    end
-
     def about
     end
 
@@ -27,8 +23,11 @@ class HomeController < ApplicationController
         @album = Album.all
     end
 
-    def post
+    def show_album
+        gon.photos = @album.photographs
     end
+
+    def post;end
 
     def blog
         @blogs = Blog.all.order("created_at DESC")
