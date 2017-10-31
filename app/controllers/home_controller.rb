@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     end
 
     def show_album
-        gon.photos = @album.photographs
+        gon.photos = @album.photographs.where.not(avatar_file_name: nil)
     end
 
     def post;end
