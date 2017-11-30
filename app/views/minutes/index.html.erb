@@ -21,11 +21,11 @@
       <tr>
         <td><%= minute.title %></td>
         <td><%= minute.location %></td>
-        <td><%= minute.date.strftime("%b. %d, %Y @ %l:%M %p") %></td>
+        <td><%= minute.date.present? ? minute.date.strftime("%b. %d, %Y @ %l:%M %p") : "Date not set" %></td>
         <td>
             <span class="pull-right">
                <%= link_to edit_minute_path(minute), data: {toggle: "tooltip", title: "Edit Minute"} do %>
-               <i class="fa fa-wrench"></i>
+                <i class="fa fa-wrench"></i>
                <% end %>
                &nbsp | &nbsp
                <%= link_to minute, method: :delete, data: { toggle: "tooltip", title: "Delete Minute", confirm: 'Are you sure?' } do %>
